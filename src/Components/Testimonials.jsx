@@ -52,7 +52,7 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <section className="bg-black text-white py-16 px-6">
-      <h2 className="text-4xl font-bold text-green-500 text-center mb-8">
+      <h2 className="text-4xl font-bold text-[#99EDC3] text-center mb-8">
         Why Us? Testimonials
       </h2>
       <Swiper
@@ -74,11 +74,13 @@ const Testimonials = () => {
               <img
                 src={testimonial.image}
                 alt={testimonial.name}
-                className="w-14 h-14 rounded-full mx-auto mb-3 border-2 border-green-500"
+                className="w-14 h-14 rounded-full mx-auto mb-3 border-2 border-[#99EDC3]"
               />
-              <h3 className="text-xl font-semibold">{testimonial.name}</h3>
+              <h3 className="text-xl font-semibold text-[#99EDC3]">
+                {testimonial.name}
+              </h3>
               <p className="text-sm text-gray-400">{testimonial.role}</p>
-              <p className="mt-4 text-lg">{testimonial.feedback}</p>
+              <p className="mt-4 text-lg text-white">{testimonial.feedback}</p>
             </div>
           </SwiperSlide>
         ))}

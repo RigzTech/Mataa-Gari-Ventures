@@ -1,81 +1,117 @@
 import React from "react";
+import Testimonials from "../Components/Testimonials";
+import aboutImage from "../assets/about-bg.jpg"; // Hero section background image
+import ctaBg from "../assets/bg3.jpg"; // Call-to-Action background image
+import { FaCheckCircle, FaUsers, FaTools, FaHandshake, FaEye, FaBullseye } from "react-icons/fa";
 
-const blogPosts = [
-  {
-    title: "How to Choose the Best Headlights for Your Car",
-    image: "/images/headlights.jpg",
-    category: "Car Lighting",
-    author: "James Carter",
-    date: "March 10, 2025",
-    excerpt: "Upgrading your car's headlights? Here’s a detailed guide to help you make the right choice for safety and style.",
-    link: "/blog/headlights-guide",
-  },
-  {
-    title: "Top 5 Car Accessories to Enhance Your Vehicle",
-    image: "/images/accessories.jpg",
-    category: "Accessories",
-    author: "Sarah Thompson",
-    date: "February 25, 2025",
-    excerpt: "Want to make your car stand out? These 5 must-have accessories will take your vehicle’s aesthetics to the next level.",
-    link: "/blog/car-accessories",
-  },
-  {
-    title: "When Should You Replace Your Side Mirrors?",
-    image: "/images/mirrors.jpg",
-    category: "Maintenance",
-    author: "Michael Johnson",
-    date: "March 5, 2025",
-    excerpt: "Your side mirrors are crucial for safety. Learn when and how to replace them efficiently.",
-    link: "/blog/side-mirrors",
-  },
-  {
-    title: "DIY Guide: How to Install New Headlights",
-    image: "/images/install-headlights.jpg",
-    category: "Installation Guide",
-    author: "Emma Davis",
-    date: "April 2, 2025",
-    excerpt: "Step-by-step instructions to install your headlights safely and efficiently at home.",
-    link: "/blog/install-headlights",
-  },
-  {
-    title: "Latest Trends in Car Auto Parts for 2025",
-    image: "/images/industry-trends.jpg",
-    category: "Industry Updates",
-    author: "David Smith",
-    date: "March 20, 2025",
-    excerpt: "Stay ahead with the latest trends and innovations in car spare parts and accessories.",
-    link: "/blog/industry-trends",
-  }
-];
-
-const Blog = () => {
+const About = () => {
   return (
-    <section className="bg-gray-900 text-white py-16 px-10 text-center">
-      <h1 className="text-5xl font-bold text-green-500 mb-6">Our Blog</h1>
-      <p className="max-w-3xl mx-auto text-lg mb-10">
-        Stay updated with expert tips, latest trends, and guides on car spare parts, accessories, and maintenance.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {blogPosts.map((post, index) => (
-          <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-48 object-cover rounded-md mb-4"
-              onError={(e) => (e.target.src = "/images/default.jpg")}
-            />
-            <p className="text-green-400 text-sm uppercase font-semibold">{post.category}</p>
-            <h2 className="text-xl font-bold mt-2">{post.title}</h2>
-            <p className="text-gray-400 text-sm">{post.author} • {post.date}</p>
-            <p className="text-gray-300 mt-3">{post.excerpt}</p>
-            <a href={post.link} className="text-green-500 font-semibold mt-3 inline-block hover:underline">
-              Read More →
-            </a>
+    <>
+      {/* Hero Section with Parallax Effect */}
+      <section
+        className="relative bg-cover bg-fixed bg-center text-white py-32 px-10 text-center"
+        style={{ backgroundImage: `url(${aboutImage})` }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="relative z-10">
+          <h1 className="text-6xl font-extrabold text-yellow-400 mb-6 uppercase drop-shadow-lg">
+            About Us
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg leading-relaxed">
+            Mataa Gari Ventures specializes in high-quality car auto spares,
+            providing reliable and affordable parts such as headlamps, taillamps,
+            side mirrors, bumpers, and LEDs. We are committed to delivering excellence.
+          </p>
+        </div>
+      </section>
+
+      {/* Company Overview */}
+      <section className="bg-gray-900 text-white py-16 px-10 text-center">
+        <h2 className="text-4xl font-bold text-yellow-400 mb-8">Who We Are</h2>
+        <p className="max-w-4xl mx-auto text-lg leading-relaxed">
+          At Mataa Gari Ventures, we are passionate about ensuring your vehicle gets the best auto spares.
+          Our team sources high-quality, durable, and affordable car parts to meet your needs.
+          Whether it's headlights, taillamps, or side mirrors, we guarantee genuine products.
+        </p>
+      </section>
+
+      {/* Mission and Vision Section */}
+      <section className="bg-black text-white py-16 px-10">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Mission */}
+          <div className="flex flex-col items-center text-center">
+            <FaBullseye className="text-yellow-400 text-6xl mb-4" />
+            <h3 className="text-3xl font-bold text-yellow-400 mb-3">Our Mission</h3>
+            <p className="text-lg leading-relaxed">
+              Delivering top-quality, durable, and affordable car parts to ensure customer satisfaction
+              and vehicle safety. We strive to offer the best solutions for all auto spare needs.
+            </p>
           </div>
-        ))}
-      </div>
-    </section>
+
+          {/* Vision */}
+          <div className="flex flex-col items-center text-center">
+            <FaEye className="text-yellow-400 text-6xl mb-4" />
+            <h3 className="text-3xl font-bold text-yellow-400 mb-3">Our Vision</h3>
+            <p className="text-lg leading-relaxed">
+              To be the leading supplier of high-quality car auto parts in Kenya,
+              known for reliability, innovation, and customer trust.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Core Values Section */}
+      <section className="bg-gray-900 text-white py-16 px-10">
+        <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8">Our Core Values</h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="flex flex-col items-center text-center">
+            <FaCheckCircle className="text-yellow-400 text-5xl mb-3" />
+            <h3 className="text-xl font-semibold">Quality Assurance</h3>
+            <p>We provide only the best, ensuring durability and performance.</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <FaUsers className="text-yellow-400 text-5xl mb-3" />
+            <h3 className="text-xl font-semibold">Customer Satisfaction</h3>
+            <p>Your happiness is our priority – we ensure top-notch service.</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <FaTools className="text-yellow-400 text-5xl mb-3" />
+            <h3 className="text-xl font-semibold">Expertise</h3>
+            <p>We have years of experience in the auto parts industry.</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <FaHandshake className="text-yellow-400 text-5xl mb-3" />
+            <h3 className="text-xl font-semibold">Trust & Reliability</h3>
+            <p>We build long-term relationships with customers based on trust.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-black text-white py-16 px-10">
+        <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8">Testimonials</h2>
+        <Testimonials />
+      </section>
+
+      {/* Call-to-Action Section with Background Image */}
+      <section
+        className="relative bg-cover bg-fixed bg-center text-white py-24 text-center"
+        style={{ backgroundImage: `url(${ctaBg})` }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="relative z-10">
+          <h2 className="text-4xl font-bold">Looking for Reliable Auto Spares?</h2>
+          <p className="text-lg mt-2">Explore our high-quality products today.</p>
+          <button
+            className="mt-6 bg-yellow-400 text-black font-semibold px-6 py-3 rounded transition transform hover:scale-105 hover:bg-yellow-500"
+            onClick={() => (window.location.href = "/products")}
+          >
+            View Products
+          </button>
+        </div>
+      </section>
+    </>
   );
 };
 
-export default Blog;
+export default About;

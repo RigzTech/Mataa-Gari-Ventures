@@ -23,7 +23,7 @@ const ProductShowcase = () => {
 
   return (
     <section className="bg-gray-900 text-white py-16 px-4 md:px-10">
-      <h2 className="text-4xl font-bold text-green-500 mb-8 text-center">
+      <h2 className="text-4xl font-bold text-[#99edc3] mb-8 text-center">
         Products
       </h2>
 
@@ -53,7 +53,7 @@ const ProductShowcase = () => {
               <h3 className="text-xl font-semibold">{product.name}</h3>
               {/* Shop Now Button - Navigates to /products */}
               <button
-                className="mt-4 bg-green-500 text-black px-4 py-2 rounded transition transform hover:scale-105"
+                className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded transition transform hover:scale-105"
                 onClick={() => navigate("/products")} // Redirect on click
               >
                 Shop Now

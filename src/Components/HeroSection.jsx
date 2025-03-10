@@ -14,7 +14,7 @@ const HeroSection = () => {
 
       {/* Left Side - Text Content */}
       <div className="relative z-10 max-w-xl text-center md:text-left animate-fadeIn">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-green-500 uppercase leading-tight drop-shadow-lg">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-[#99edc3] uppercase leading-tight drop-shadow-lg">
           Your Trusted Auto Spares Dealer
         </h1>
         <p className="mt-4 text-lg text-gray-300">
@@ -23,7 +23,7 @@ const HeroSection = () => {
         <div className="mt-6 flex flex-col md:flex-row gap-4">
           {/* Shop Now Button - Navigates to /products */}
           <button
-            className="bg-green-500 text-black px-6 py-3 rounded shadow-md transition transform hover:scale-105 hover:bg-green-600"
+            className="bg-[#99edc3] text-black px-6 py-3 rounded shadow-md transition transform hover:scale-105 hover:bg-[#7dccac]"
             onClick={() => navigate("/products")} // Redirect on click
           >
             Shop Now
@@ -31,7 +31,7 @@ const HeroSection = () => {
 
           {/* Get a Quote Button - Now Redirects to /get-quote */}
           <button
-            className="border border-green-500 px-6 py-3 rounded text-green-500 hover:bg-green-500 hover:text-black transition transform hover:scale-105"
+            className="border border-[#99edc3] px-6 py-3 rounded text-[#99edc3] hover:bg-[#99edc3] hover:text-black transition transform hover:scale-105"
             onClick={() => navigate("/get-quote")} // Redirects to Get a Quote page
           >
             Get a Quote
