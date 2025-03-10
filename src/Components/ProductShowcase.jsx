@@ -22,28 +22,34 @@ const ProductShowcase = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   return (
-    <section className="bg-gray-900 text-white py-16 px-10">
-      <h2 className="text-4xl font-bold text-green-500 mb-8 text-center">Products</h2>
+    <section className="bg-gray-900 text-white py-16 px-4 md:px-10">
+      <h2 className="text-4xl font-bold text-green-500 mb-8 text-center">
+        Products
+      </h2>
 
       {/* Swiper for sliding product boxes */}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
-        slidesPerView={3} // Show 3 products at a time
+        slidesPerView={1} // Default: Show 1 product at a time
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+          640: { slidesPerView: 1 }, // Ensure 1 product per slide on small screens
+          768: { slidesPerView: 2 }, // Show 2 products on tablets
+          1024: { slidesPerView: 3 }, // Show 3 products on larger screens
         }}
-        className="w-4/5 mx-auto"
+        className="w-full md:w-4/5 mx-auto"
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
             <div className="bg-black p-6 rounded-lg shadow-lg text-center">
-              <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-4" />
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-64 object-contain mb-4 mx-auto"
+              />
               <h3 className="text-xl font-semibold">{product.name}</h3>
               {/* Shop Now Button - Navigates to /products */}
               <button

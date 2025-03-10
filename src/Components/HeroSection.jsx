@@ -29,8 +29,11 @@ const HeroSection = () => {
             Shop Now
           </button>
 
-          {/* Get a Quote Button */}
-          <button className="border border-green-500 px-6 py-3 rounded text-green-500 hover:bg-green-500 hover:text-black transition transform hover:scale-105">
+          {/* Get a Quote Button - Now Redirects to /get-quote */}
+          <button
+            className="border border-green-500 px-6 py-3 rounded text-green-500 hover:bg-green-500 hover:text-black transition transform hover:scale-105"
+            onClick={() => navigate("/get-quote")} // Redirects to Get a Quote page
+          >
             Get a Quote
           </button>
         </div>
