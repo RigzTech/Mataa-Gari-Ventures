@@ -34,7 +34,7 @@ const Products = () => {
         />
       </div>
 
-      {/* Filter Buttons & Buy Now Button */}
+      {/* Filter Buttons */}
       <div className="flex flex-wrap justify-center items-center gap-2 mb-6">
         {categories.map((category) => (
           <button
@@ -47,20 +47,13 @@ const Products = () => {
             {category}
           </button>
         ))}
-        {/* Buy Now Button */}
-        <button
-          className="ml-4 px-6 py-2 bg-blue-500 text-white rounded"
-          onClick={() => navigate("/order-payment")}
-        >
-          Buy Now
-        </button>
       </div>
 
       {/* Product Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {filteredProducts.map((product) => (
           <div key={product.id} className="bg-gray-900 p-4 rounded-lg text-center">
-            {/* Product Image - Now properly fitting */}
+            {/* Product Image */}
             <div className="w-full h-56 bg-gray-800 rounded-lg overflow-hidden flex items-center justify-center">
               <img 
                 src={product.image} 
@@ -79,6 +72,17 @@ const Products = () => {
               onClick={() => addToCart(product)}
             >
               Add to Cart
+            </button>
+
+            {/* Buy Now Button - Takes to Checkout Page */}
+            <button
+              className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+              onClick={() => {
+                addToCart(product); // Add product to cart
+                navigate("/order-payment"); // Navigate to checkout
+              }}
+            >
+              Buy Now
             </button>
           </div>
         ))}
