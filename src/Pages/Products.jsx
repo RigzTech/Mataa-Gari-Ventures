@@ -30,7 +30,7 @@ const Products = () => {
   };
 
   const navigateToCart = () => {
-    navigate("/cart");
+    navigate("/order-payment"); // Redirects to the Order & Payment page
   };
 
   return (
