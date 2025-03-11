@@ -41,7 +41,7 @@ const Products = () => {
         onClick={navigateToCart}
       >
         <div className="relative">
-          <FaShoppingCart className="text-3xl text-green-500 hover:text-green-400 transition" />
+          <FaShoppingCart className="text-3xl text-[#99edc3] hover:text-green-400 transition" />
           {cartItems.length > 0 && (
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
               {cartItems.length}
@@ -50,7 +50,7 @@ const Products = () => {
         </div>
       </div>
 
-      <h1 className="text-5xl font-bold text-green-500 text-center mb-6">Our Products</h1>
+      <h1 className="text-5xl font-bold text-[#99edc3] text-center mb-6">Our Products</h1>
 
       {/* Search Bar */}
       <div className="flex justify-center mb-6">
@@ -69,7 +69,7 @@ const Products = () => {
           <button
             key={category}
             className={`px-4 py-2 rounded ${
-              filter === category ? "bg-green-500 text-black" : "border border-green-500"
+              filter === category ? "bg-[#99edc3] text-black" : "border border-[#99edc3]"
             }`}
             onClick={() => setFilter(category)}
           >
@@ -93,11 +93,11 @@ const Products = () => {
 
             {/* Product Details */}
             <h2 className="text-xl font-semibold mt-3">{product.name}</h2>
-            <p className="text-green-500">Ksh {product.price}</p>
+            <p className="text-[#99edc3]">Ksh {product.price}</p>
 
             {/* Add to Cart Button */}
             <button
-              className="mt-4 bg-green-500 text-black px-4 py-2 rounded"
+              className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded"
               onClick={() => handleAddToCart(product)}
             >
               Add to Cart
@@ -129,7 +129,7 @@ const Products = () => {
 
       {/* Notification */}
       {notification && (
-        <div className="fixed bottom-5 right-5 bg-green-500 text-black px-6 py-3 rounded shadow-lg">
+        <div className="fixed bottom-5 right-5 bg-[#99edc3] text-black px-6 py-3 rounded shadow-lg">
           {notification}
         </div>
       )}
@@ -138,7 +138,7 @@ const Products = () => {
       {selectedProduct && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
           <div className="bg-gray-900 text-white p-6 rounded-lg max-w-md">
-            <h2 className="text-2xl font-bold text-green-500">{selectedProduct.name}</h2>
+            <h2 className="text-2xl font-bold text-[#99edc3]">{selectedProduct.name}</h2>
             <p><strong>Brand/Car Model:</strong> {selectedProduct.brand}</p>
             <p><strong>Category:</strong> {selectedProduct.category}</p>
             <p><strong>Price:</strong> Ksh {selectedProduct.price}</p>

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import mpesaLogo from "../assets/mpesa.jpg"; 
-import visaLogo from "../assets/visa.jpg"; 
+import mpesaLogo from "../assets/mpesa.jpeg"; 
+import visaLogo from "../assets/visa.png"; 
 import mastercardLogo from "../assets/mastercard.jpg"; 
 
 const OrderPayment = () => {
@@ -31,12 +31,15 @@ const OrderPayment = () => {
 
   return (
     <div className="container mx-auto p-6 text-white">
-      <h2 className="text-4xl font-bold text-center text-green-500 mb-6">Checkout</h2>
+      <h2 className="text-4xl font-bold text-center text-[#99edc3] mb-6">Checkout</h2>
 
       {cartItems.length === 0 ? (
         <div className="text-center text-red-500">
           <p>Your cart is empty!</p>
-          <button className="bg-green-500 px-4 py-2 mt-4 rounded" onClick={() => navigate("/products")}>
+          <button 
+            className="bg-[#99edc3] text-black px-4 py-2 mt-4 rounded hover:bg-[#7fcfa8]" 
+            onClick={() => navigate("/products")}
+          >
             Return to Shop
           </button>
         </div>
@@ -44,7 +47,7 @@ const OrderPayment = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Cart Summary */}
           <div className="bg-gray-900 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4 text-green-400">Your Cart</h3>
+            <h3 className="text-xl font-semibold mb-4 text-[#99edc3]">Your Cart</h3>
             {cartItems.map((item) => (
               <div key={item.id} className="flex justify-between items-center border-b py-2">
                 <div>
@@ -61,7 +64,7 @@ const OrderPayment = () => {
                   <span className="text-lg">{item.quantity}</span>
                   <button 
                     onClick={() => updateQuantity(item.id, item.quantity + 1)} 
-                    className="bg-green-500 px-3 py-1 rounded hover:bg-green-600"
+                    className="bg-[#99edc3] text-black px-3 py-1 rounded hover:bg-[#7fcfa8]"
                   >
                     +
                   </button>
@@ -79,7 +82,7 @@ const OrderPayment = () => {
 
           {/* Customer Information */}
           <div className="bg-gray-900 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4 text-green-400">Customer Details</h3>
+            <h3 className="text-xl font-semibold mb-4 text-[#99edc3]">Customer Details</h3>
             <form onSubmit={handleOrderSubmit}>
               <div className="space-y-4">
                 <div>
@@ -115,10 +118,12 @@ const OrderPayment = () => {
                   />
                 </div>
 
+                {/* Payment Method Selection */}
                 <div>
                   <label className="block mb-2">Payment Method</label>
-                  <div className="grid grid-cols-3 gap-4">
-                    <label className={`payment-method ${customerInfo.paymentMethod === 'M-Pesa' ? 'border-green-500' : ''}`}>
+                  <div className="flex space-x-4">
+                    {/* M-Pesa */}
+                    <label className={`border-2 ${customerInfo.paymentMethod === 'M-Pesa' ? 'border-[#99edc3]' : 'border-gray-400'} p-1 rounded-lg cursor-pointer flex items-center justify-center w-20 h-14`}>
                       <input
                         type="radio"
                         name="paymentMethod"
@@ -127,10 +132,11 @@ const OrderPayment = () => {
                         onChange={handleInputChange}
                         className="hidden"
                       />
-                      <img src={mpesaLogo} alt="M-Pesa" className="h-12 mx-auto" />
+                      <img src={mpesaLogo} alt="M-Pesa" className="h-8" />
                     </label>
-                    
-                    <label className={`payment-method ${customerInfo.paymentMethod === 'Visa' ? 'border-green-500' : ''}`}>
+
+                    {/* Visa */}
+                    <label className={`border-2 ${customerInfo.paymentMethod === 'Visa' ? 'border-[#99edc3]' : 'border-gray-600'} p-1 rounded-lg cursor-pointer flex items-center justify-center w-20 h-14`}>
                       <input
                         type="radio"
                         name="paymentMethod"
@@ -139,10 +145,11 @@ const OrderPayment = () => {
                         onChange={handleInputChange}
                         className="hidden"
                       />
-                      <img src={visaLogo} alt="Visa" className="h-12 mx-auto" />
+                      <img src={visaLogo} alt="Visa" className="h-7" />
                     </label>
-                    
-                    <label className={`payment-method ${customerInfo.paymentMethod === 'Mastercard' ? 'border-green-500' : ''}`}>
+
+                    {/* Mastercard */}
+                    <label className={`border-2 ${customerInfo.paymentMethod === 'Mastercard' ? 'border-[#99edc3]' : 'border-gray-600'} p-1 rounded-lg cursor-pointer flex items-center justify-center w-20 h-14`}>
                       <input
                         type="radio"
                         name="paymentMethod"
@@ -151,14 +158,14 @@ const OrderPayment = () => {
                         onChange={handleInputChange}
                         className="hidden"
                       />
-                      <img src={mastercardLogo} alt="Mastercard" className="h-12 mx-auto" />
+                      <img src={mastercardLogo} alt="Mastercard" className="h-8" />
                     </label>
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-green-500 text-black font-bold py-3 rounded hover:bg-green-400 transition"
+                  className="w-full bg-[#99edc3] text-black font-bold py-3 rounded hover:bg-[#7fcfa8] transition"
                 >
                   Place Order (KES {totalAmount})
                 </button>
