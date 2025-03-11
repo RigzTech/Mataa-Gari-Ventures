@@ -25,7 +25,7 @@ const GetQuote = () => {
     const message = `Hello, I need a quote:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nCar Model: ${formData.carModel}\nPart Needed: ${formData.partNeeded}`;
     
     if (method === "whatsapp") {
-      const whatsappLink = `https://wa.me/254712345678?text=${encodeURIComponent(message)}`;
+      const whatsappLink = `https://wa.me/254796383719?text=${encodeURIComponent(message)}`;
       window.open(whatsappLink, "_blank");
     } else {
       const mailtoLink = `mailto:info@mataagariventures.com?subject=Quote Request&body=${encodeURIComponent(message)}`;
@@ -44,36 +44,36 @@ const GetQuote = () => {
 
         <form className="space-y-5">
           {/* Name Field */}
-          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaUser className="text-[#99edc3] mr-3" />
+          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaUser className="text-[#bbbbbb] mr-3" />
             <input type="text" name="name" value={formData.name} onChange={handleChange} required 
-              className="w-full bg-transparent outline-none" placeholder="Your Name"/>
+              className="w-full bg-transparent outline-none placeholder-gray-300" placeholder="Your Name"/>
           </div>
 
           {/* Phone Number Field */}
-          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaPhone className="text-[#99edc3] mr-3" />
+          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaPhone className="text-[#bbbbbb] mr-3" />
             <input type="text" name="phone" value={formData.phone} onChange={handleChange} required 
-              className="w-full bg-transparent outline-none" placeholder="Phone Number"/>
+              className="w-full bg-transparent outline-none placeholder-gray-300" placeholder="Phone Number"/>
           </div>
 
           {/* Car Model Field */}
-          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaCar className="text-[#99edc3] mr-3" />
+          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaCar className="text-[#bbbbbb] mr-3" />
             <input type="text" name="carModel" value={formData.carModel} onChange={handleChange} required 
-              className="w-full bg-transparent outline-none" placeholder="Car Model"/>
+              className="w-full bg-transparent outline-none placeholder-gray-300" placeholder="Car Model"/>
           </div>
 
           {/* Part Needed Field */}
-          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaTools className="text-[#99edc3] mr-3" />
+          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaTools className="text-[#bbbbbb] mr-3" />
             <input type="text" name="partNeeded" value={formData.partNeeded} onChange={handleChange} required 
-              className="w-full bg-transparent outline-none" placeholder="Part Needed"/>
+              className="w-full bg-transparent outline-none placeholder-gray-300" placeholder="Part Needed"/>
           </div>
 
           {/* Image Upload Field */}
-          <div className="flex items-center bg-gray-800 text-white border border-gray-600 rounded-lg px-3 py-3">
-            <FaPaperclip className="text-gray-400 mr-3" />
+          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaPaperclip className="text-[#bbbbbb] mr-3" />
             <input type="file" accept="image/*" onChange={handleImageUpload} 
               className="w-full bg-transparent outline-none text-gray-300"/>
           </div>
@@ -81,12 +81,12 @@ const GetQuote = () => {
           {/* Submit Buttons */}
           <div className="flex justify-between mt-4">
             <button onClick={(e) => handleSubmit(e, "email")} 
-              className="w-1/2 bg-[#99edc3] text-black py-3 rounded-lg mr-2 font-semibold flex items-center justify-center hover:bg-[#80d4aa] transition transform hover:scale-105">
+              className="w-1/2 bg-blue-500 text-white py-3 rounded-lg mr-2 font-semibold flex items-center justify-center hover:bg-blue-600 transition transform hover:scale-105">
               <FaEnvelope className="mr-2" /> Send via Email
             </button>
 
             <button onClick={(e) => handleSubmit(e, "whatsapp")} 
-              className="w-1/2 bg-blue-500 text-white py-3 rounded-lg font-semibold flex items-center justify-center hover:bg-blue-600 transition transform hover:scale-105">
+              className="w-1/2 bg-green-500 text-white py-3 rounded-lg font-semibold flex items-center justify-center hover:bg-green-600 transition transform hover:scale-105">
               <FaWhatsapp className="mr-2" /> Send via WhatsApp
             </button>
           </div>

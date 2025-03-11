@@ -56,8 +56,8 @@ const Blog = () => {
     <>
       {/* Header Section with Container */}
       <section className="py-16 px-6 bg-black text-white flex justify-center">
-        <div className="bg-gray-800 shadow-lg rounded-lg p-10 max-w-4xl text-center border border-green-400">
-          <h1 className="text-5xl font-bold text-green-400 uppercase">Car Parts Blog</h1>
+        <div className="bg-gray-800 shadow-lg rounded-lg p-10 max-w-4xl text-center border border-[#99edc3]">
+          <h1 className="text-5xl font-bold text-[#99edc3] uppercase">Auto Parts Blog</h1>
           <p className="text-lg mt-4 text-gray-300 max-w-2xl mx-auto">
             Stay informed with expert insights, tips, and guides on buying and maintaining car spare parts.
           </p>
@@ -66,12 +66,12 @@ const Blog = () => {
 
       {/* Blog Articles Section */}
       <section className="bg-gray-900 text-white py-16 px-6">
-        <h2 className="text-4xl font-bold text-green-400 text-center mb-10">Latest Articles</h2>
+        <h2 className="text-4xl font-bold text-[#99edc3] text-center mb-10">Latest Articles</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {blogPosts.map((post) => (
             <div key={post.id} className="bg-gray-800 p-5 rounded-lg shadow-lg border border-gray-700">
               <img src={post.image} alt={post.title} className="w-full h-52 object-cover rounded-lg mb-4" />
-              <h3 className="text-2xl font-bold text-green-400">{post.title}</h3>
+              <h3 className="text-2xl font-bold text-[#99edc3]">{post.title}</h3>
               <div className="flex items-center text-gray-400 text-sm mt-2">
                 <FaClock className="mr-2" /> {post.date}
               </div>
