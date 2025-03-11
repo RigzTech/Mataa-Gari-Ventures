@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import productData from "../data/products";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Products = () => {
   const [filter, setFilter] = useState("All");
@@ -9,7 +10,7 @@ const Products = () => {
   const [notification, setNotification] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
   const categories = [
@@ -28,8 +29,27 @@ const Products = () => {
     setTimeout(() => setNotification(null), 3000);
   };
 
+  const navigateToCart = () => {
+    navigate("/cart");
+  };
+
   return (
     <section className="bg-black text-white py-16 px-4">
+      {/* Floating Cart Icon */}
+      <div 
+        className="fixed top-4 right-4 cursor-pointer z-50"
+        onClick={navigateToCart}
+      >
+        <div className="relative">
+          <FaShoppingCart className="text-3xl text-green-500 hover:text-green-400 transition" />
+          {cartItems.length > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              {cartItems.length}
+            </span>
+          )}
+        </div>
+      </div>
+
       <h1 className="text-5xl font-bold text-green-500 text-center mb-6">Our Products</h1>
 
       {/* Search Bar */}
@@ -78,17 +98,17 @@ const Products = () => {
             {/* Add to Cart Button */}
             <button
               className="mt-4 bg-green-500 text-black px-4 py-2 rounded"
-              onClick={() => addToCart(product)}
+              onClick={() => handleAddToCart(product)}
             >
               Add to Cart
             </button>
 
-            {/* Buy Now Button - Takes to Checkout Page */}
+            {/* Buy Now Button */}
             <button
               className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
               onClick={() => {
-                addToCart(product); // Add product to cart
-                navigate("/order-payment"); // Navigate to checkout
+                addToCart(product);
+                navigate("/order-payment");
               }}
             >
               Buy Now
@@ -97,7 +117,7 @@ const Products = () => {
         ))}
       </div>
 
-      {/* Buy Now Button (Signout/Payment) */}
+      {/* Shop Now Button */}
       <div className="text-center mt-10">
         <button
           className="bg-red-600 text-white text-xl font-bold px-6 py-3 rounded shadow-lg transition transform hover:scale-105"

@@ -8,7 +8,7 @@ const Footer = () => {
         <>
             <style>{`
                 .footerContainer {
-                    background-color: #22C55E;
+                    background-color: #00100c;
                     padding: 40px 20px;
                 }
 
@@ -31,7 +31,7 @@ const Footer = () => {
                     font-size: 40px;
                     font-family: 'Montserrat';
                     font-weight: bold;
-                    color: #000000;
+                    color: #99edc3;
                     text-align: left;
                     margin-bottom: 20px;
                 }
@@ -48,7 +48,7 @@ const Footer = () => {
                 }
 
                 .head {
-                    color: #fefefe;
+                    color: #99edc3;
                     font-size: 22px;
                     text-align: left;
                     margin-top: 15px;
@@ -61,10 +61,10 @@ const Footer = () => {
                 }
 
                 .footerBottom {
-                    background-color: #1a3a13;
+                    background-color: #00100c;
                     padding: 20px;
                     text-align: center;
-                    color: #fefefe;
+                    color: #99edc3;
                     position: relative;
                 }
 
@@ -72,7 +72,7 @@ const Footer = () => {
                     position: fixed;
                     bottom: 30px;
                     right: 30px;
-                    background-color: #25D366;
+                    background-color: #014938;
                     padding: 15px;
                     border-radius: 50%;
                     color: white;
