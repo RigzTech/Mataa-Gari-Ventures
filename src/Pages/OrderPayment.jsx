@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import mpesaLogo from "../assets/mpesa.jpeg"; 
-import visaLogo from "../assets/visa.png"; 
-import mastercardLogo from "../assets/mastercard.jpg"; 
+import mpesaLogo from "../assets/Mpesa.jpeg"; 
+import visaLogo from "../assets/Visa.png"; 
+import mastercardLogo from "../assets/mastercard-icon.png"; 
 
 const OrderPayment = () => {
   const navigate = useNavigate();
