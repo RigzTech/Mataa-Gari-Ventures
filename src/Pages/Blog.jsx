@@ -2,11 +2,11 @@ import React from "react";
 import { FaClock } from "react-icons/fa";
 
 // Import images from the src/assets/blog folder
-import tipsImage from "../assets/blog/tips.webp"; // For "Top 5 Tips for Buying Quality Car Spare Parts"
-import maintainImage from "../assets/blog/maintain.webp"; // For "How to Maintain Your Car’s Headlights and Taillights"
-import aftermarketImage from "../assets/blog/aftermarket.webp"; // For "Best Aftermarket Parts for Your Car Model"
-import genuinePartsImage from "../assets/blog/genuineparts.webp"; // For "Why Genuine Spare Parts Matter"
-import evPartsImage from "../assets/blog/futureofelectric.webp"; // For "The Future of Electric Vehicle Spare Parts"
+import tipsImage from "../assets/blog/tips.webp"; 
+import maintainImage from "../assets/blog/maintain.webp"; 
+import aftermarketImage from "../assets/blog/aftermarket.webp"; 
+import genuinePartsImage from "../assets/blog/genuineparts.webp"; 
+import evPartsImage from "../assets/blog/futureofelectric.webp"; 
 
 const blogPosts = [
   {
@@ -54,12 +54,14 @@ const blogPosts = [
 const Blog = () => {
   return (
     <>
-      {/* Header Section */}
-      <section className="text-center py-16 px-6 bg-black text-white">
-        <h1 className="text-5xl font-bold text-green-400 uppercase">Car Parts Blog</h1>
-        <p className="text-lg mt-4 text-gray-300 max-w-2xl mx-auto">
-          Stay informed with expert insights, tips, and guides on buying and maintaining car spare parts.
-        </p>
+      {/* Header Section with Container */}
+      <section className="py-16 px-6 bg-black text-white flex justify-center">
+        <div className="bg-gray-800 shadow-lg rounded-lg p-10 max-w-4xl text-center border border-green-400">
+          <h1 className="text-5xl font-bold text-green-400 uppercase">Car Parts Blog</h1>
+          <p className="text-lg mt-4 text-gray-300 max-w-2xl mx-auto">
+            Stay informed with expert insights, tips, and guides on buying and maintaining car spare parts.
+          </p>
+        </div>
       </section>
 
       {/* Blog Articles Section */}
@@ -67,7 +69,7 @@ const Blog = () => {
         <h2 className="text-4xl font-bold text-green-400 text-center mb-10">Latest Articles</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {blogPosts.map((post) => (
-            <div key={post.id} className="bg-gray-800 p-5 rounded-lg shadow-lg">
+            <div key={post.id} className="bg-gray-800 p-5 rounded-lg shadow-lg border border-gray-700">
               <img src={post.image} alt={post.title} className="w-full h-52 object-cover rounded-lg mb-4" />
               <h3 className="text-2xl font-bold text-green-400">{post.title}</h3>
               <div className="flex items-center text-gray-400 text-sm mt-2">
