@@ -13,7 +13,7 @@ const Contact = () => {
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="relative z-10">
-          <h1 className="text-6xl font-extrabold text-green-500 uppercase drop-shadow-lg">
+          <h1 className="text-6xl font-extrabold text-[#99edc3] uppercase drop-shadow-lg">
             Contact Us
           </h1>
         </div>
@@ -24,38 +24,38 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
           <div className="bg-gray-800 bg-opacity-80 p-6 rounded-lg shadow-lg">
-            <h2 className="text-3xl font-bold text-green-400 mb-4">Get In Touch</h2>
+            <h2 className="text-3xl font-bold text-[#99edc3] mb-4">Get In Touch</h2>
             <p className="text-lg text-gray-300 mb-6">
               We’d love to hear from you! Whether you have questions about our products, pricing, or anything else, our team is ready to help.
             </p>
 
             <div className="space-y-4">
               <p className="flex items-center space-x-3">
-                <FaPhone className="w-6 h-6 text-green-500" />
+                <FaPhone className="w-6 h-6 text-[#99edc3]" />
                 <span>+254 712 345 678</span>
               </p>
               <p className="flex items-center space-x-3">
-                <FaEnvelope className="w-6 h-6 text-green-500" />
+                <FaEnvelope className="w-6 h-6 text-[#99edc3]" />
                 <span>info@mataagariventures.com</span>
               </p>
               <p className="flex items-center space-x-3">
-                <FaMapMarkerAlt className="w-6 h-6 text-green-500" />
+                <FaMapMarkerAlt className="w-6 h-6 text-[#99edc3]" />
                 <span>Nairobi, Kenya</span>
               </p>
             </div>
 
             {/* Social Media Links */}
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="text-green-500 text-2xl hover:text-green-400">
+              <a href="#" className="text-[#99edc3] text-2xl hover:text-[#80d4aa]">
                 <FaFacebook />
               </a>
-              <a href="#" className="text-green-500 text-2xl hover:text-green-400">
+              <a href="#" className="text-[#99edc3] text-2xl hover:text-[#80d4aa]">
                 <FaInstagram />
               </a>
-              <a href="#" className="text-green-500 text-2xl hover:text-green-400">
+              <a href="#" className="text-[#99edc3] text-2xl hover:text-[#80d4aa]">
                 <FaTwitter />
               </a>
-              <a href="#" className="text-green-500 text-2xl hover:text-green-400">
+              <a href="#" className="text-[#99edc3] text-2xl hover:text-[#80d4aa]">
                 <FaWhatsapp />
               </a>
             </div>
@@ -63,26 +63,26 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-gray-800 bg-opacity-80 p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold text-green-400 mb-4">Send Us a Message</h2>
+            <h2 className="text-2xl font-bold text-[#99edc3] mb-4">Send Us a Message</h2>
             <form className="space-y-4">
               <input 
                 type="text" 
                 placeholder="Your Name" 
-                className="w-full p-3 rounded bg-gray-700 bg-opacity-70 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded bg-gray-700 bg-opacity-70 text-white focus:outline-none focus:ring-2 focus:ring-[#99edc3]"
               />
               <input 
                 type="email" 
                 placeholder="Your Email" 
-                className="w-full p-3 rounded bg-gray-700 bg-opacity-70 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded bg-gray-700 bg-opacity-70 text-white focus:outline-none focus:ring-2 focus:ring-[#99edc3]"
               />
               <textarea 
                 placeholder="Your Message" 
                 rows="4" 
-                className="w-full p-3 rounded bg-gray-700 bg-opacity-70 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded bg-gray-700 bg-opacity-70 text-white focus:outline-none focus:ring-2 focus:ring-[#99edc3]"
               ></textarea>
               <button 
                 type="submit" 
-                className="w-full bg-green-500 text-black font-bold py-3 rounded hover:bg-green-400 transition"
+                className="w-full bg-[#99edc3] text-black font-bold py-3 rounded hover:bg-[#80d4aa] transition"
               >
                 Send Message
               </button>

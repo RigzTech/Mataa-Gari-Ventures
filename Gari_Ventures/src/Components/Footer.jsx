@@ -8,7 +8,7 @@ const Footer = () => {
         <>
             <style>{`
                 .footerContainer {
-                    background-color: #22C55E;
+                    background-color: #000000;
                     padding: 40px 20px;
                 }
 
@@ -31,13 +31,13 @@ const Footer = () => {
                     font-size: 40px;
                     font-family: 'Montserrat';
                     font-weight: bold;
-                    color: #000000;
+                    color: #99edc3;
                     text-align: left;
                     margin-bottom: 20px;
                 }
 
                 .text {
-                    color: #fefefe;
+                    color: #ffffff;
                     text-align: left;
                     font-size: 16px;
                     margin-bottom: 10px;
@@ -48,7 +48,7 @@ const Footer = () => {
                 }
 
                 .head {
-                    color: #fefefe;
+                    color: #99edc3;
                     font-size: 22px;
                     text-align: left;
                     margin-top: 15px;
@@ -61,10 +61,10 @@ const Footer = () => {
                 }
 
                 .footerBottom {
-                    background-color: #1a3a13;
+                    background-color: #111;
                     padding: 20px;
                     text-align: center;
-                    color: #fefefe;
+                    color: #99edc3;
                     position: relative;
                 }
 
@@ -83,22 +83,22 @@ const Footer = () => {
                 .icon {
                     font-size: 25px;
                     margin: 0 10px;
-                    color: #fff;
+                    color: #99edc3;
                     transition: color 0.3s ease;
                 }
 
                 .icon:hover {
-                    color: #000000;
+                    color: #ffffff;
                 }
 
                 .email, .phone {
-                    color: #fff;
+                    color: #ffffff;
                     text-decoration: none;
                     transition: color 0.3s ease;
                 }
 
                 .email:hover, .phone:hover {
-                    color: #000000;
+                    color:#99edc3;
                     text-decoration: underline;
                 }
 
@@ -132,7 +132,7 @@ const Footer = () => {
                 <div className="footerRow">
                     {/* Company Info */}
                     <div className="footerColumn">
-                        <p className="logo">MATAA GARI</p>
+                        <p className="logo">MATAA GARI VENTURES</p>
                         <p className="text">Kenya, East-Africa, Africa</p>
                         <div className="socialIcons">
                             <a href="#" target="_blank" rel="noopener noreferrer">
@@ -198,7 +198,7 @@ const Footer = () => {
             {/* Footer Bottom */}
             <div className="footerBottom">
                 <p><strong>MATAA GARI VENTURES LIMITED</strong></p>
-                <p>Copyright © 2025. All rights reserved.</p>
+                <p>Copyright © {new Date().getFullYear()}. All rights reserved.</p>
                 <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" className="whatsapp">
                     <FontAwesomeIcon icon={faWhatsapp} />
                 </a>
