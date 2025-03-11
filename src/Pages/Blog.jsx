@@ -1,117 +1,93 @@
 import React from "react";
-import Testimonials from "../Components/Testimonials";
-import aboutImage from "../assets/about-bg.jpg"; // Hero section background image
-import ctaBg from "../assets/bg3.jpg"; // Call-to-Action background image
-import { FaCheckCircle, FaUsers, FaTools, FaHandshake, FaEye, FaBullseye } from "react-icons/fa";
+import { FaClock } from "react-icons/fa";
 
-const About = () => {
+// Import images from the src/assets/blog folder
+import tipsImage from "../assets/blog/tips.webp"; // For "Top 5 Tips for Buying Quality Car Spare Parts"
+import maintainImage from "../assets/blog/maintain.webp"; // For "How to Maintain Your Car’s Headlights and Taillights"
+import aftermarketImage from "../assets/blog/aftermarket.webp"; // For "Best Aftermarket Parts for Your Car Model"
+import genuinePartsImage from "../assets/blog/genuineparts.webp"; // For "Why Genuine Spare Parts Matter"
+import evPartsImage from "../assets/blog/futureofelectric.webp"; // For "The Future of Electric Vehicle Spare Parts"
+
+const blogPosts = [
+  {
+    id: 1,
+    title: "Top 5 Tips for Buying Quality Car Spare Parts",
+    date: "March 11, 2025",
+    image: tipsImage,
+    excerpt: "Learn how to identify high-quality spare parts and avoid counterfeits...",
+    link: "https://medium.com/@premiercarcaredubai/5-important-tips-to-follow-when-buying-car-spare-parts-c20dd92bd5a7",
+  },
+  {
+    id: 2,
+    title: "How to Maintain Your Car’s Headlights and Taillights",
+    date: "March 8, 2025",
+    image: maintainImage,
+    excerpt: "Proper maintenance of headlights ensures safety and longevity...",
+    link: "https://www.concordkia.com/blog/how-do-you-maintain-your-cars-headlights/#:~:text=Use%20a%20non%2Dabrasive%20cleaner,straight%20ahead%20and%20slightly%20downward.",
+  },
+  {
+    id: 3,
+    title: "Best Aftermarket Parts for Your Car Model",
+    date: "March 5, 2025",
+    image: aftermarketImage,
+    excerpt: "Looking for affordable and durable aftermarket car parts? Here are the best...",
+    link: "https://shop.jasp.ae/blogs/news/maximizing-performance-the-best-aftermarket-parts-for-your-car",
+  },
+  {
+    id: 4,
+    title: "Why Genuine Spare Parts Matter",
+    date: "March 2, 2025",
+    image: genuinePartsImage,
+    excerpt: "Using genuine parts extends your car’s lifespan and ensures safety...",
+    link: "https://www.wartsila.com/insights/whitepaper/why-genuine-spare-parts-are-the-best-choice-for-your-vessel#:~:text=Genuine%20spare%20parts%20are%20reliable,money%20in%20the%20long%20run.",
+  },
+  {
+    id: 5,
+    title: "The Future of Electric Vehicle Spare Parts",
+    date: "February 25, 2025",
+    image: evPartsImage,
+    excerpt: "EVs are changing the auto industry. Discover how spare parts differ...",
+    link: "https://www.krishnaautoelectric.com/blog/the-future-of-automobile-spare-parts-and-components/",
+  },
+];
+
+const Blog = () => {
   return (
     <>
-      {/* Hero Section with Parallax Effect */}
-      <section
-        className="relative bg-cover bg-fixed bg-center text-white py-32 px-10 text-center"
-        style={{ backgroundImage: `url(${aboutImage})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        <div className="relative z-10">
-          <h1 className="text-6xl font-extrabold text-yellow-400 mb-6 uppercase drop-shadow-lg">
-            About Us
-          </h1>
-          <p className="max-w-3xl mx-auto text-lg leading-relaxed">
-            Mataa Gari Ventures specializes in high-quality car auto spares,
-            providing reliable and affordable parts such as headlamps, taillamps,
-            side mirrors, bumpers, and LEDs. We are committed to delivering excellence.
-          </p>
-        </div>
-      </section>
-
-      {/* Company Overview */}
-      <section className="bg-gray-900 text-white py-16 px-10 text-center">
-        <h2 className="text-4xl font-bold text-yellow-400 mb-8">Who We Are</h2>
-        <p className="max-w-4xl mx-auto text-lg leading-relaxed">
-          At Mataa Gari Ventures, we are passionate about ensuring your vehicle gets the best auto spares.
-          Our team sources high-quality, durable, and affordable car parts to meet your needs.
-          Whether it's headlights, taillamps, or side mirrors, we guarantee genuine products.
+      {/* Header Section */}
+      <section className="text-center py-16 px-6 bg-black text-white">
+        <h1 className="text-5xl font-bold text-green-400 uppercase">Car Parts Blog</h1>
+        <p className="text-lg mt-4 text-gray-300 max-w-2xl mx-auto">
+          Stay informed with expert insights, tips, and guides on buying and maintaining car spare parts.
         </p>
       </section>
 
-      {/* Mission and Vision Section */}
-      <section className="bg-black text-white py-16 px-10">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Mission */}
-          <div className="flex flex-col items-center text-center">
-            <FaBullseye className="text-yellow-400 text-6xl mb-4" />
-            <h3 className="text-3xl font-bold text-yellow-400 mb-3">Our Mission</h3>
-            <p className="text-lg leading-relaxed">
-              Delivering top-quality, durable, and affordable car parts to ensure customer satisfaction
-              and vehicle safety. We strive to offer the best solutions for all auto spare needs.
-            </p>
-          </div>
-
-          {/* Vision */}
-          <div className="flex flex-col items-center text-center">
-            <FaEye className="text-yellow-400 text-6xl mb-4" />
-            <h3 className="text-3xl font-bold text-yellow-400 mb-3">Our Vision</h3>
-            <p className="text-lg leading-relaxed">
-              To be the leading supplier of high-quality car auto parts in Kenya,
-              known for reliability, innovation, and customer trust.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Core Values Section */}
-      <section className="bg-gray-900 text-white py-16 px-10">
-        <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8">Our Core Values</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-          <div className="flex flex-col items-center text-center">
-            <FaCheckCircle className="text-yellow-400 text-5xl mb-3" />
-            <h3 className="text-xl font-semibold">Quality Assurance</h3>
-            <p>We provide only the best, ensuring durability and performance.</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <FaUsers className="text-yellow-400 text-5xl mb-3" />
-            <h3 className="text-xl font-semibold">Customer Satisfaction</h3>
-            <p>Your happiness is our priority – we ensure top-notch service.</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <FaTools className="text-yellow-400 text-5xl mb-3" />
-            <h3 className="text-xl font-semibold">Expertise</h3>
-            <p>We have years of experience in the auto parts industry.</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <FaHandshake className="text-yellow-400 text-5xl mb-3" />
-            <h3 className="text-xl font-semibold">Trust & Reliability</h3>
-            <p>We build long-term relationships with customers based on trust.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="bg-black text-white py-16 px-10">
-        <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8">Testimonials</h2>
-        <Testimonials />
-      </section>
-
-      {/* Call-to-Action Section with Background Image */}
-      <section
-        className="relative bg-cover bg-fixed bg-center text-white py-24 text-center"
-        style={{ backgroundImage: `url(${ctaBg})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10">
-          <h2 className="text-4xl font-bold">Looking for Reliable Auto Spares?</h2>
-          <p className="text-lg mt-2">Explore our high-quality products today.</p>
-          <button
-            className="mt-6 bg-yellow-400 text-black font-semibold px-6 py-3 rounded transition transform hover:scale-105 hover:bg-yellow-500"
-            onClick={() => (window.location.href = "/products")}
-          >
-            View Products
-          </button>
+      {/* Blog Articles Section */}
+      <section className="bg-gray-900 text-white py-16 px-6">
+        <h2 className="text-4xl font-bold text-green-400 text-center mb-10">Latest Articles</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+          {blogPosts.map((post) => (
+            <div key={post.id} className="bg-gray-800 p-5 rounded-lg shadow-lg">
+              <img src={post.image} alt={post.title} className="w-full h-52 object-cover rounded-lg mb-4" />
+              <h3 className="text-2xl font-bold text-green-400">{post.title}</h3>
+              <div className="flex items-center text-gray-400 text-sm mt-2">
+                <FaClock className="mr-2" /> {post.date}
+              </div>
+              <p className="mt-3 text-gray-300">{post.excerpt}</p>
+              <a
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 bg-[#99edc3] text-black font-semibold px-4 py-2 rounded shadow-md transition transform hover:scale-105 hover:bg-green-300"
+              >
+                Read More
+              </a>
+            </div>
+          ))}
         </div>
       </section>
     </>
   );
 };
 
-export default About;
+export default Blog;
