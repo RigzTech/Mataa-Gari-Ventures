@@ -72,7 +72,7 @@ const Footer = () => {
                     position: fixed;
                     bottom: 30px;
                     right: 30px;
-                    background-color: #25D366;
+                    background-color: #014938;
                     padding: 15px;
                     border-radius: 50%;
                     color: white;
