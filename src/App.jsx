@@ -8,6 +8,7 @@ import Blog from "./Pages/Blog";
 import OrderPayment from "./Pages/OrderPayment";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import GetQuote from "./Pages/GetQuote";  // Added new import for GetQuote page
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/order-payment" element={<OrderPayment />} />
-      </Routes>
+        <Route path="/get-quote" element={<GetQuote />} />
+     </Routes>
       <Footer />
     </div>
   );
