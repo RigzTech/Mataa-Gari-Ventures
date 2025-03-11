@@ -91,15 +91,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Google Map Embed */}
-      <section className="relative w-full h-64">
-        <iframe 
-          className="w-full h-full"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.168769416407!2d36.8219!3d-1.286389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d4c4c4b4d9%3A0x3b2f0aede0d491a4!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1616192989289!5m2!1sen!2s" 
-          allowFullScreen="" 
-          loading="lazy">
-        </iframe>
-      </section>
     </>
   );
 };
