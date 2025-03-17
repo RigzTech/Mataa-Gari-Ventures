@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faTwitter, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faTwitter, faWhatsapp, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
@@ -140,6 +140,15 @@ const Footer = () => {
                             </a>
                             <a href="#" target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faTwitter} className="icon" />
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faInstagram} className="icon" />
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faTiktok} className="icon" />
+                            </a>
+                            <a href="https://wa.me/254796383719" target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faWhatsapp} className="icon" />
                             </a>
                         </div>
                     </div>
