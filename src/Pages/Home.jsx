@@ -12,18 +12,17 @@ const Home = () => {
     <div className="bg-dark text-white">
       {/* Hero Section */}
       <HeroSection />
-      
-      {/* Search Bar */}
-      <SearchBar />
 
       {/* Business Introduction */}
       <BusinessIntroduction />
+
+      
+      {/* Search Bar */}
+      <SearchBar />
       
       {/* Product Showcase */}
       <ProductShowcase />
 
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
