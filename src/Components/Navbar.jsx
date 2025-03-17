@@ -53,7 +53,7 @@ const Navbar = () => {
             <Link to="/about" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>About</Link>
           </li>
           <li>
-            <Link to="/services" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>Services</Link>
+            <Link to="/products" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>Products</Link>
           </li>
           <li>
             <Link to="/contact" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>Contact</Link>
