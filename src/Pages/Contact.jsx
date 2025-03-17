@@ -1,10 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
-=======
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa"; // Keep FaMapMarkerAlt from fa
 import { FaXTwitter, FaTiktok } from "react-icons/fa6"; // Import new icons from fa6
->>>>>>> b6887213975c0da484ec10a82c23dd7b45a2ea60
 
 import bgImage from "../assets/contactus1.jpg"; // Ensure this image is in the assets folder
 
@@ -58,14 +54,10 @@ const Contact = () => {
                 <FaInstagram />
               </a>
               <a href="#" className="text-[#99edc3] text-2xl hover:text-[#80d4aa]">
-<<<<<<< HEAD
-                <FaTwitter />
-=======
                 <FaXTwitter />
               </a>
               <a href="#" className="text-[#99edc3] text-2xl hover:text-[#80d4aa]">
                 <FaTiktok />
->>>>>>> b6887213975c0da484ec10a82c23dd7b45a2ea60
               </a>
               <a href="#" className="text-[#99edc3] text-2xl hover:text-[#80d4aa]">
                 <FaWhatsapp />
@@ -102,10 +94,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-<<<<<<< HEAD
-
-=======
->>>>>>> b6887213975c0da484ec10a82c23dd7b45a2ea60
     </>
   );
 };
