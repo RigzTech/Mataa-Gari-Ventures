@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSection from '../Components/HeroSection';
+import SearchBar from '../Components/SearchBar'; // Import the new SearchBar component
 import BusinessIntroduction from '../Components/BusinessIntroduction';
 import ProductShowcase from '../Components/ProductShowcase';
 import AboutUs from '../Components/AboutUs';
@@ -12,12 +13,17 @@ const Home = () => {
       {/* Hero Section */}
       <HeroSection />
       
+      {/* Search Bar */}
+      <SearchBar />
+
       {/* Business Introduction */}
       <BusinessIntroduction />
       
       {/* Product Showcase */}
       <ProductShowcase />
 
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
