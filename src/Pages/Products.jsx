@@ -13,6 +13,7 @@ const Products = () => {
   const [maxPrice, setMaxPrice] = useState("");
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [notification, setNotification] = useState(null);
+  const [categoryDescription, setCategoryDescription] = useState("");
   const { addToCart, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
@@ -34,6 +35,27 @@ const Products = () => {
   }, []);
 
   const categories = ["All", "Lighting", "Accessories", "Mirrors", "Body Parts", "Ex-Japan"];
+
+  const fetchCategoryDescription = async (category) => {
+    try {
+      const response = await fetch(`https://mataa-backend.onrender.com/category-description?category=${category}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch category description");
+      }
+      const data = await response.json();
+      setCategoryDescription(data.description);
+    } catch (error) {
+      console.error("Error fetching category description:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (filter !== "All") {
+      fetchCategoryDescription(filter);
+    } else {
+      setCategoryDescription("");
+    }
+  }, [filter]);
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = filter === "All" || product.category === filter;
@@ -88,6 +110,11 @@ const Products = () => {
         ))}
       </div>
 
+      {/* Category Description */}
+      {categoryDescription && (
+        <p className="text-center text-gray-300 mb-6">{categoryDescription}</p>
+      )}
+
       {/* Products Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredProducts.length > 0 ? (
@@ -106,10 +133,6 @@ const Products = () => {
           <p className="text-center text-red-500 col-span-full">No products found matching your criteria.</p>
         )}
       </div>
-
-      {notification && (
-        <div className="fixed bottom-5 right-5 bg-[#99edc3] text-black px-6 py-3 rounded shadow-lg">{notification}</div>
-      )}
     </section>
   );
 };
