@@ -1,15 +1,31 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { ProductContext } from "../context/ProductContext"; // Import context
 
 const ProductShowcase = () => {
-  const { filteredProducts = [] } = useContext(ProductContext) || {}; // Default to empty array
+  const [products, setProducts] = useState([]); // State to store products
   const navigate = useNavigate();
+
+  // Fetch products from the backend
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("/api/products/search"); // Adjust API URL if necessary
+        const data = await response.json();
+        if (data.success) {
+          setProducts(data.data); // Update products state
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <section className="bg-gray-900 text-white py-16 px-4 md:px-10">
@@ -17,8 +33,12 @@ const ProductShowcase = () => {
         Products
       </h2>
 
+<<<<<<< HEAD
       {/* Ensure filteredProducts exists before checking length */}
       {filteredProducts.length === 0 ? (
+=======
+      {products.length === 0 ? (
+>>>>>>> 39d0d5ca35be48e6b021bf6aee950fd9c23ba9ca
         <p className="text-center text-gray-400">No products found.</p>
       ) : (
         <Swiper
@@ -35,7 +55,7 @@ const ProductShowcase = () => {
           }}
           className="w-full md:w-4/5 mx-auto"
         >
-          {filteredProducts.map((product, index) => (
+          {products.map((product, index) => (
             <SwiperSlide key={index}>
               <div className="bg-black p-6 rounded-lg shadow-lg text-center">
                 <img
