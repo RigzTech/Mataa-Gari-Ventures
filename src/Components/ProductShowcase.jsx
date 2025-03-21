@@ -7,18 +7,20 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const ProductShowcase = () => {
-  const [products, setProducts] = useState([]); // State to store products
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
   // Fetch products from the backend
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("/api/products/search"); // Adjust API URL if necessary
-        const data = await response.json();
-        if (data.success) {
-          setProducts(data.data); // Update products state
+        const response = await fetch("https://mataa-backend.onrender.com/products");
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
         }
+        const data = await response.json();
+        console.log("Fetched Products:", data); // Debugging: Check API response
+        setProducts(data.products);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -54,9 +56,10 @@ const ProductShowcase = () => {
             <SwiperSlide key={index}>
               <div className="bg-black p-6 rounded-lg shadow-lg text-center">
                 <img
-                  src={product.image}
+                  src={product.imageUrl} // Updated to use the correct image field
                   alt={product.name}
                   className="w-full h-64 object-contain mb-4 mx-auto"
+                  onError={(e) => (e.target.src = "/placeholder.jpg")} // Fallback image
                 />
                 <h3 className="text-xl font-semibold">{product.name}</h3>
                 <button
