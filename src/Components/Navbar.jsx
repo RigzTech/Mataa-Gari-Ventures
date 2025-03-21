@@ -37,15 +37,16 @@ const Navbar = () => {
       </div>
 
       {/* Expanded Menu (Linked to Menu Icon) */}
-      {isOpen && (
-        <ul className="bg-black text-white text-right space-y-3 py-3 border-t border-gray-700">
-          <li><Link to="/lighting" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>Lighting</Link></li>
-          <li><Link to="/accessories" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>Accessories</Link></li>
-          <li><Link to="/mirrors" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>Mirrors</Link></li>
-          <li><Link to="/body-parts" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>Body Parts</Link></li>
-          <li><Link to="/ex-japan" className="block py-3 hover:text-gray-400" onClick={() => setIsOpen(false)}>Ex-Japan</Link></li>
-        </ul>
-      )}
+{isOpen && (
+  <ul className="bg-black text-white text-right space-y-3 py-3 border-t border-gray-700 px-4">
+    <li><Link to="/products#lighting" className="block py-3 font-bold hover:text-gray-400" onClick={() => setIsOpen(false)}>Lighting</Link></li>
+    <li><Link to="/products#accessories" className="block py-3 font-bold hover:text-gray-400" onClick={() => setIsOpen(false)}>Accessories</Link></li>
+    <li><Link to="/products#mirrors" className="block py-3 font-bold hover:text-gray-400" onClick={() => setIsOpen(false)}>Mirrors</Link></li>
+    <li><Link to="/products#body-parts" className="block py-3 font-bold hover:text-gray-400" onClick={() => setIsOpen(false)}>Body Parts</Link></li>
+    <li><Link to="/products#ex-japan" className="block py-3 font-bold hover:text-gray-400" onClick={() => setIsOpen(false)}>Ex-Japan</Link></li>
+  </ul>
+)}
+
     </nav>
   );
 };

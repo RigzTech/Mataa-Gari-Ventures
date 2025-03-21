@@ -15,7 +15,6 @@ const Products = () => {
   const [notification, setNotification] = useState(null);
   const { addToCart, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
-  
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -34,7 +33,7 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  const categories = ["All", "Headlights", "Taillights", "Mirrors", "Bumpers", "Bonnets", "Doors", "Car Accessories"];
+  const categories = ["All", "Lighting", "Accessories", "Mirrors", "Body Parts", "Ex-Japan"];
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = filter === "All" || product.category === filter;
@@ -69,66 +68,21 @@ const Products = () => {
       <h1 className="text-5xl font-bold text-[#99edc3] text-center mb-6">Our Products</h1>
 
       {/* Search and Filter Section */}
-      <div className="flex flex-wrap justify-center gap-4 mb-6">
-        <input
-          type="text"
-          placeholder="Search by product name..."
-          className="w-full max-w-md px-4 py-2 text-black rounded"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-
-        <input
-          type="text"
-          placeholder="Filter by car make..."
-          className="w-full max-w-md px-4 py-2 text-black rounded"
-          value={carMake}
-          onChange={(e) => setCarMake(e.target.value)}
-        />
-
-        <input
-          type="text"
-          placeholder="Filter by car model..."
-          className="w-full max-w-md px-4 py-2 text-black rounded"
-          value={carModel}
-          onChange={(e) => setCarModel(e.target.value)}
-        />
-
-        <input
-          type="number"
-          placeholder="Min Price"
-          className="w-32 px-4 py-2 text-black rounded"
-          value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
-        />
-
-        <input
-          type="number"
-          placeholder="Max Price"
-          className="w-32 px-4 py-2 text-black rounded"
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
-        />
-
+      <div className="flex flex-wrap justify-center gap-2 mb-6">
+        <input type="text" placeholder="Search..." className="w-48 px-2 py-1 text-black rounded" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+        <input type="text" placeholder="Car Make..." className="w-48 px-2 py-1 text-black rounded" value={carMake} onChange={(e) => setCarMake(e.target.value)} />
+        <input type="text" placeholder="Car Model..." className="w-48 px-2 py-1 text-black rounded" value={carModel} onChange={(e) => setCarModel(e.target.value)} />
+        <input type="number" placeholder="Min Price" className="w-24 px-2 py-1 text-black rounded" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} />
+        <input type="number" placeholder="Max Price" className="w-24 px-2 py-1 text-black rounded" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
         <label className="flex items-center text-white">
-          <input
-            type="checkbox"
-            className="mr-2"
-            checked={onlyInStock}
-            onChange={(e) => setOnlyInStock(e.target.checked)}
-          />
-          In Stock Only
+          <input type="checkbox" className="mr-2" checked={onlyInStock} onChange={(e) => setOnlyInStock(e.target.checked)} /> In Stock Only
         </label>
       </div>
 
       {/* Category Buttons */}
       <div className="flex flex-wrap justify-center items-center gap-2 mb-6">
         {categories.map((category) => (
-          <button
-            key={category}
-            className={`px-4 py-2 rounded ${filter === category ? "bg-[#99edc3] text-black" : "border border-[#99edc3]"}`}
-            onClick={() => setFilter(category)}
-          >
+          <button key={category} className={`px-4 py-2 rounded ${filter === category ? "bg-[#99edc3] text-black" : "border border-[#99edc3]"}`} onClick={() => setFilter(category)}>
             {category}
           </button>
         ))}
@@ -142,17 +96,10 @@ const Products = () => {
               <div className="w-full h-56 bg-gray-800 rounded-lg overflow-hidden flex items-center justify-center">
                 <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
               </div>
-
               <h2 className="text-xl font-semibold mt-3">{product.name}</h2>
               <p className="text-[#99edc3]">Ksh {product.price}</p>
-
-              <button className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded" onClick={() => handleAddToCart(product)}>
-                Add to Cart
-              </button>
-
-              <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onClick={() => navigate("/order-payment")}>
-                Buy Now
-              </button>
+              <button className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+              <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onClick={() => navigate("/order-payment")}>Buy Now</button>
             </div>
           ))
         ) : (
@@ -161,9 +108,7 @@ const Products = () => {
       </div>
 
       {notification && (
-        <div className="fixed bottom-5 right-5 bg-[#99edc3] text-black px-6 py-3 rounded shadow-lg">
-          {notification}
-        </div>
+        <div className="fixed bottom-5 right-5 bg-[#99edc3] text-black px-6 py-3 rounded shadow-lg">{notification}</div>
       )}
     </section>
   );
