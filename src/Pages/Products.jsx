@@ -11,13 +11,12 @@ const Products = () => {
   const [carModel, setCarModel] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-  const [onlyInStock, setOnlyInStock] = useState(false);
+  const [onlyInStock, setOnlyInStock] = useState(false);  // This is being used now
   const [notification, setNotification] = useState(null);
   const [categoryDescription, setCategoryDescription] = useState("");
   const { addToCart, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-  // Fetch products once when the component is mounted
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -41,11 +40,10 @@ const Products = () => {
     };
 
     fetchProducts();
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
 
   const categories = ["All", "Lighting", "Accessories", "Mirrors", "Body Parts", "Ex-Japan"];
 
-  // Fetch category description only when the filter changes
   useEffect(() => {
     if (filter !== "All") {
       const fetchCategoryDescription = async (category) => {
@@ -67,7 +65,6 @@ const Products = () => {
     }
   }, [filter]);
 
-  // Filter products based on various criteria
   const filteredProducts = products.filter((product) => {
     const matchesCategory = filter === "All" || product.description?.includes(filter);
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -76,7 +73,7 @@ const Products = () => {
     const matchesPrice =
       (minPrice === "" || product.price >= Number(minPrice)) &&
       (maxPrice === "" || product.price <= Number(maxPrice));
-    const matchesStock = !onlyInStock || product.stock > 0;
+    const matchesStock = !onlyInStock || product.stock > 0; // Apply in-stock filter
 
     return matchesCategory && matchesSearch && matchesMake && matchesModel && matchesPrice && matchesStock;
   });
@@ -84,7 +81,7 @@ const Products = () => {
   const handleAddToCart = (product) => {
     addToCart(product);
     setNotification(`${product.name} added to cart!`);
-    setTimeout(() => setNotification(null), 3000); // Hide notification after 3 seconds
+    setTimeout(() => setNotification(null), 3000);
   };
 
   return (
@@ -139,6 +136,19 @@ const Products = () => {
             {category}
           </button>
         ))}
+      </div>
+
+      {/* Only In Stock Checkbox */}
+      <div className="flex justify-center mb-6">
+        <label className="text-gray-300 flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={onlyInStock}
+            onChange={() => setOnlyInStock(!onlyInStock)}
+            className="cursor-pointer"
+          />
+          Only show products in stock
+        </label>
       </div>
 
       {/* Category Description */}
