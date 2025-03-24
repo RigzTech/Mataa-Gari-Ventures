@@ -11,7 +11,7 @@ const Products = () => {
   const [carModel, setCarModel] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-  const [onlyInStock, setOnlyInStock] = useState(false);  // This is being used now
+  const [onlyInStock, setOnlyInStock] = useState(false); // Filter state for in-stock items
   const [notification, setNotification] = useState(null);
   const [categoryDescription, setCategoryDescription] = useState("");
   const { addToCart, cartItems } = useContext(CartContext);
@@ -106,7 +106,7 @@ const Products = () => {
       <h1 className="text-5xl font-bold text-[#99edc3] text-center mb-6">Our Products</h1>
 
       {/* Search and Filter Section */}
-      <div className="flex flex-wrap justify-center gap-4 mb-6">
+      <div className="flex flex-wrap justify-start gap-4 mb-6">
         {[
           { placeholder: "Search by product name...", value: searchQuery, onChange: setSearchQuery },
           { placeholder: "Filter by car make...", value: carMake, onChange: setCarMake },
@@ -118,11 +118,22 @@ const Products = () => {
             key={index}
             type={input.type || "text"}
             placeholder={input.placeholder}
-            className="w-full max-w-md px-4 py-2 text-black rounded"
+            className="px-4 py-2 text-black rounded"
             value={input.value}
             onChange={(e) => input.onChange(e.target.value)}
           />
         ))}
+        
+        {/* Only In Stock Checkbox */}
+        <label className="text-gray-300 flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={onlyInStock}
+            onChange={() => setOnlyInStock(!onlyInStock)}
+            className="cursor-pointer"
+          />
+          Only show products in stock
+        </label>
       </div>
 
       {/* Category Buttons */}
@@ -136,19 +147,6 @@ const Products = () => {
             {category}
           </button>
         ))}
-      </div>
-
-      {/* Only In Stock Checkbox */}
-      <div className="flex justify-center mb-6">
-        <label className="text-gray-300 flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={onlyInStock}
-            onChange={() => setOnlyInStock(!onlyInStock)}
-            className="cursor-pointer"
-          />
-          Only show products in stock
-        </label>
       </div>
 
       {/* Category Description */}
