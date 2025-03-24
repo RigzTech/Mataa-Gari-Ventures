@@ -73,11 +73,12 @@ const ProductShowcase = () => {
                   src={product.imageUrl} // Corrected image source
                   alt={product.name}
                   className="w-full h-64 object-contain mb-4 mx-auto"
+                  onError={(e) => (e.target.src = "/placeholder.jpg")} // Fallback image
                 />
                 <h3 className="text-xl font-semibold">{product.name}</h3>
                 <p className="text-gray-400">Make: {product.make}</p>
                 <p className="text-gray-400">Model: {product.model}</p>
-                <p className="text-gray-400">Description: {product.description}</p> {/* Added description */}
+                <p className="text-gray-400">Description: {product.description}</p>
                 <p className="text-[#99edc3] font-bold">Ksh {product.price.toLocaleString()}</p>
                 
                 <button

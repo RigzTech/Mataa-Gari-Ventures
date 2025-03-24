@@ -13,9 +13,11 @@ const Products = () => {
   const [maxPrice, setMaxPrice] = useState("");
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [notification, setNotification] = useState(null);
+  const [categoryDescription, setCategoryDescription] = useState("");
   const { addToCart, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
+  // Fetch products once when the component is mounted
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -24,8 +26,6 @@ const Products = () => {
           throw new Error("Failed to fetch products");
         }
         const data = await response.json();
-
-        // Extract only necessary fields and exclude _id
         const updatedProducts = data.products.map(({ name, make, model, description, price, imageUrl }) => ({
           name,
           make,
@@ -34,7 +34,6 @@ const Products = () => {
           price,
           imageUrl,
         }));
-
         setProducts(updatedProducts);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -42,12 +41,35 @@ const Products = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, []); // Empty dependency array means this effect runs once on mount
 
-  const categories = ["All", "Lighting", "Accessories", "Mirrors", "Body Parts","Ex-Japan"];
+  const categories = ["All", "Lighting", "Accessories", "Mirrors", "Body Parts", "Ex-Japan"];
 
+  // Fetch category description only when the filter changes
+  useEffect(() => {
+    if (filter !== "All") {
+      const fetchCategoryDescription = async (category) => {
+        try {
+          const response = await fetch(`https://mataa-backend.onrender.com/category-description?category=${category}`);
+          if (!response.ok) {
+            throw new Error("Failed to fetch category description");
+          }
+          const data = await response.json();
+          setCategoryDescription(data.description);
+        } catch (error) {
+          console.error("Error fetching category description:", error);
+        }
+      };
+
+      fetchCategoryDescription(filter);
+    } else {
+      setCategoryDescription("");
+    }
+  }, [filter]);
+
+  // Filter products based on various criteria
   const filteredProducts = products.filter((product) => {
-    const matchesCategory = filter === "All" || (product.description && product.description.includes(filter));
+    const matchesCategory = filter === "All" || product.description?.includes(filter);
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesMake = carMake === "" || product.make.toLowerCase().includes(carMake.toLowerCase());
     const matchesModel = carModel === "" || product.model.toLowerCase().includes(carModel.toLowerCase());
@@ -62,7 +84,7 @@ const Products = () => {
   const handleAddToCart = (product) => {
     addToCart(product);
     setNotification(`${product.name} added to cart!`);
-    setTimeout(() => setNotification(null), 3000);
+    setTimeout(() => setNotification(null), 3000); // Hide notification after 3 seconds
   };
 
   return (
@@ -88,24 +110,41 @@ const Products = () => {
 
       {/* Search and Filter Section */}
       <div className="flex flex-wrap justify-center gap-4 mb-6">
-        <input type="text" placeholder="Search by product name..." className="w-full max-w-md px-4 py-2 text-black rounded" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
-        <input type="text" placeholder="Filter by car make..." className="w-full max-w-md px-4 py-2 text-black rounded" value={carMake} onChange={(e) => setCarMake(e.target.value)} />
-        <input type="text" placeholder="Filter by car model..." className="w-full max-w-md px-4 py-2 text-black rounded" value={carModel} onChange={(e) => setCarModel(e.target.value)} />
-        <input type="number" placeholder="Min Price" className="w-32 px-4 py-2 text-black rounded" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} />
-        <input type="number" placeholder="Max Price" className="w-32 px-4 py-2 text-black rounded" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
-        <label className="flex items-center text-white">
-          <input type="checkbox" className="mr-2" checked={onlyInStock} onChange={(e) => setOnlyInStock(e.target.checked)} /> In Stock Only
-        </label>
+        {[
+          { placeholder: "Search by product name...", value: searchQuery, onChange: setSearchQuery },
+          { placeholder: "Filter by car make...", value: carMake, onChange: setCarMake },
+          { placeholder: "Filter by car model...", value: carModel, onChange: setCarModel },
+          { placeholder: "Min Price", value: minPrice, onChange: setMinPrice, type: "number" },
+          { placeholder: "Max Price", value: maxPrice, onChange: setMaxPrice, type: "number" },
+        ].map((input, index) => (
+          <input
+            key={index}
+            type={input.type || "text"}
+            placeholder={input.placeholder}
+            className="w-full max-w-md px-4 py-2 text-black rounded"
+            value={input.value}
+            onChange={(e) => input.onChange(e.target.value)}
+          />
+        ))}
       </div>
 
       {/* Category Buttons */}
       <div className="flex flex-wrap justify-center items-center gap-2 mb-6">
         {categories.map((category) => (
-          <button key={category} className={`px-4 py-2 rounded ${filter === category ? "bg-[#99edc3] text-black" : "border border-[#99edc3]"}`} onClick={() => setFilter(category)}>
+          <button
+            key={category}
+            className={`px-4 py-2 rounded ${filter === category ? "bg-[#99edc3] text-black" : "border border-[#99edc3]"}`}
+            onClick={() => setFilter(category)}
+          >
             {category}
           </button>
         ))}
       </div>
+
+      {/* Category Description */}
+      {categoryDescription && (
+        <p className="text-center text-gray-300 mb-6">{categoryDescription}</p>
+      )}
 
       {/* Products Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -120,7 +159,9 @@ const Products = () => {
               <p className="text-[#99edc3]">Ksh {product.price}</p>
 
               {/* Add to Cart Button */}
-              <button className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+              <button className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded" onClick={() => handleAddToCart(product)}>
+                Add to Cart
+              </button>
 
               <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onClick={() => navigate("/order-payment")}>
                 Buy Now
