@@ -5,7 +5,7 @@ import BusinessIntroduction from '../Components/BusinessIntroduction';
 import ProductShowcase from '../Components/ProductShowcase';
 import AboutUs from '../Components/AboutUs';
 import ContactSection from '../Components/ContactSection';
-import Footer from '../Components/Footer';
+// import Footer from '../Components/Footer';
 
 const Home = () => {
   return (
@@ -20,6 +20,14 @@ const Home = () => {
       {/* Product Showcase */}
       <ProductShowcase />
 
+      {/* About Us Section */}
+      <AboutUs />
+
+      {/* Contact Section */}
+      <ContactSection />
+
+      {/* Footer */}
+      {/* <Footer /> */}
     </div>
   );
 };
