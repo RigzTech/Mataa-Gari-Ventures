@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import menu icons
-import logo from "../assets/logo.webp"; // Import your logo
+import logo from "../assets/mataa_logo.jpg"; // Import your logo
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // State for mobile menu toggle

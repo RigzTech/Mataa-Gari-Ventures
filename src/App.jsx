@@ -4,6 +4,7 @@ import { ProductProvider } from "./context/ProductContext.jsx"; // ✅ Import Pr
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Products from "./Pages/Products";
+import ProductDetails from "./Pages/ProductDetails"; // ✅ Import ProductDetails
 import Contact from "./Pages/Contact";
 import Blog from "./Pages/Blog";
 import OrderPayment from "./Pages/OrderPayment";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetails />} /> {/* ✅ Product Details Route */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/order-payment" element={<OrderPayment />} />

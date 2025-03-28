@@ -11,6 +11,14 @@ const ProductShowcase = () => {
   const [error, setError] = useState(null); // Track errors
   const navigate = useNavigate();
 
+  // State for search and filters
+  const [searchQuery, setSearchQuery] = useState("");
+  const [carMake, setCarMake] = useState("");
+  const [carModel, setCarModel] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [onlyInStock, setOnlyInStock] = useState(false);
+
   // Fetch products from the backend
   useEffect(() => {
     const fetchProducts = async () => {
@@ -49,6 +57,37 @@ const ProductShowcase = () => {
         Products
       </h2>
 
+      {/* Search and Filter Section */}
+      <div className="flex flex-wrap justify-start gap-4 mb-6">
+        {[
+          { placeholder: "Search by product name...", value: searchQuery, onChange: setSearchQuery },
+          { placeholder: "Filter by car make...", value: carMake, onChange: setCarMake },
+          { placeholder: "Filter by car model...", value: carModel, onChange: setCarModel },
+          { placeholder: "Min Price", value: minPrice, onChange: setMinPrice, type: "number" },
+          { placeholder: "Max Price", value: maxPrice, onChange: setMaxPrice, type: "number" },
+        ].map((input, index) => (
+          <input
+            key={index}
+            type={input.type || "text"}
+            placeholder={input.placeholder}
+            className="px-4 py-2 text-black rounded"
+            value={input.value}
+            onChange={(e) => input.onChange(e.target.value)}
+          />
+        ))}
+        
+        {/* Only In Stock Checkbox */}
+        <label className="text-gray-300 flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={onlyInStock}
+            onChange={() => setOnlyInStock(!onlyInStock)}
+            className="cursor-pointer"
+          />
+          Only show products in stock
+        </label>
+      </div>
+
       {products.length === 0 ? (
         <p className="text-center text-gray-400">No products found.</p>
       ) : (
@@ -79,7 +118,9 @@ const ProductShowcase = () => {
                 <p className="text-gray-400">Make: {product.make}</p>
                 <p className="text-gray-400">Model: {product.model}</p>
                 <p className="text-gray-400">Description: {product.description}</p>
-                <p className="text-[#99edc3] font-bold">Ksh {product.price.toLocaleString()}</p>
+                <p className="text-[#99edc3] font-bold">
+                  Ksh {product.price.toLocaleString()}
+                </p>
                 
                 <button
                   className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded transition transform hover:scale-105"
