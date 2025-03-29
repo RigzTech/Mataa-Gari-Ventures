@@ -1,55 +1,84 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa"; // Import menu icons
-import logo from "../assets/mataa_logo.jpg"; // Import your logo
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext.jsx";
+import { SunIcon, MoonIcon, SystemIcon } from "./icons.jsx";
+import logo from "../assets/mataa_logo.jpg"; // Using your local logo; change to "logo.webp" if preferred
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // State for mobile menu toggle
+  const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme(); // Get theme context
+
+  // Define inline styles for the light and dark modes
+  const lightStyle = {
+    backgroundColor: "#ffffff",
+    color: "#000000",
+  };
+
+  const darkStyle = {
+    backgroundColor: "#1a1a1a",
+    color: "#ffffff",
+  };
+
+  // Define navbar styles based on theme
+  const navbarStyle = theme === "dark" ? darkStyle : lightStyle;
 
   return (
-    <nav className="bg-black text-white shadow-md">
+    <nav style={{ ...navbarStyle, boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
-        
-        {/* Logo (Left-Aligned) */}
+        {/* Logo */}
         <Link to="/" className="flex items-center">
           <img src={logo} alt="MATAA GARI Logo" className="h-28 w-40" />
         </Link>
 
-        {/* Desktop & Mobile Menu */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-10 text-lg font-medium">
-          <Link to="/" className="hover:text-gray-400 transition">Home</Link>
-          <Link to="/about" className="hover:text-gray-400 transition">About</Link>
-          <Link to="/products" className="hover:text-gray-400 transition">Products</Link>
-          <Link to="/blog" className="hover:text-gray-400 transition">Blogs</Link>
-          <Link to="/contact" className="hover:text-gray-400 transition">Contact</Link>
+          <Link to="/" style={{ ...navbarStyle }} className="hover:text-gray-400 transition">Home</Link>
+          <Link to="/about" style={{ ...navbarStyle }} className="hover:text-gray-400 transition">About</Link>
+          <Link to="/products" style={{ ...navbarStyle }} className="hover:text-gray-400 transition">Products</Link>
+          <Link to="/blog" style={{ ...navbarStyle }} className="hover:text-gray-400 transition">Blogs</Link>
+          <Link to="/contact" style={{ ...navbarStyle }} className="hover:text-gray-400 transition">Contact</Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-3xl focus:outline-none" 
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        {/* Right Section (Theme Toggle + Mobile Menu) */}
+        <div className="flex items-center gap-6">
+          {/* Theme Toggle */}
+          <button 
+            onClick={toggleTheme}
+            style={{ ...navbarStyle, padding: "8px", borderRadius: "50%", cursor: "pointer" }}
+            className="hidden md:flex hover:bg-gray-800 transition"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' && <SunIcon className="w-6 h-6" />}
+            {theme === 'dark' && <MoonIcon className="w-6 h-6" />}
+            {theme === 'system' && <SystemIcon className="w-6 h-6" />}
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-3xl focus:outline-none" 
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu (Collapsible) */}
       {isOpen && (
-        <div className="md:hidden bg-black text-white text-center py-3 border-t border-gray-700">
-          <Link to="/" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/about" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>About</Link>
-          <Link to="/products" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Products</Link>
-          <Link to="/blog" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Blogs</Link>
-          <Link to="/contact" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Contact</Link>
-
-          {/* Product Categories (Dropdown) */}
-          <div className="mt-3 border-t border-gray-700 pt-3">
-            <p className="text-lg font-bold">Categories</p>
-            <Link to="/products#lighting" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Lighting</Link>
-            <Link to="/products#accessories" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Accessories</Link>
-            <Link to="/products#mirrors" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Mirrors</Link>
-            <Link to="/products#body-parts" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Body Parts</Link>
-            <Link to="/products#ex-japan" className="block py-2 hover:text-gray-400" onClick={() => setIsOpen(false)}>Ex-Japan</Link>
+        <div style={{ ...navbarStyle, textAlign: "center", padding: "12px", borderTop: "1px solid #333" }}>
+          {/* Mobile Theme Toggle */}
+          <div className="mt-4 pt-4">
+            <button 
+              onClick={toggleTheme}
+              style={{ ...navbarStyle, display: "flex", alignItems: "center", justifyContent: "center", padding: "12px", cursor: "pointer" }}
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' && <SunIcon className="w-6 h-6 mr-2" />}
+              {theme === 'dark' && <MoonIcon className="w-6 h-6 mr-2" />}
+              {theme === 'system' && <SystemIcon className="w-6 h-6 mr-2" />}
+              <span>Toggle Theme</span>
+            </button>
           </div>
         </div>
       )}
