@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Optional: Custom base styles */
+@layer base {
+  /* Default (light) theme */
+  body {
+    @apply bg-white text-black;
+  }
+
+  /* Dark theme */
+  .dark body {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+/* Add any custom components or utilities below if needed */
+@layer components {
+  /* Example: Custom button */
+  .btn {
+    @apply px-4 py-2 rounded;
+  }
+  .dark .btn {
+    @apply bg-gray-700 text-white;
+  }
+}
