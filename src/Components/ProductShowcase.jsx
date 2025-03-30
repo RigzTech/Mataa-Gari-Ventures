@@ -88,17 +88,17 @@ const ProductShowcase = () => {
   }
 
   return (
-    <section className="bg-gray-900 text-white py-16 px-4 md:px-10">
-      <h2 className="text-4xl font-bold text-[#99edc3] mb-8 text-center">
+    <section className="bg-emerald-50 text-white py-16 px-4 md:px-10">
+      <h2 className="text-4xl font-bold text-black mb-8 text-center">
         Products
       </h2>
 
       {/* Search and Filter Section */}
-      <div className="flex flex-wrap justify-start gap-4 mb-6">
+      <div className="flex flex-wrap justify-center gap-4 mb-6">
         <input
           type="text"
           placeholder="Search by product name..."
-          className="px-4 py-2 text-black rounded"
+          className="px-4 py-2 text-white bg-gray-800 rounded"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -149,7 +149,7 @@ const ProductShowcase = () => {
           onChange={(e) => setMaxPrice(e.target.value)}
         />
 
-        <label className="text-gray-300 flex items-center gap-2">
+        <label className="text-black flex items-center gap-2">
           <input
             type="checkbox"
             checked={onlyInStock}
@@ -175,11 +175,11 @@ const ProductShowcase = () => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="w-full md:w-4/5 mx-auto"
+          className="w-full mx-auto"
         >
           {filteredProducts.map((product) => (
             <SwiperSlide key={product._id}>
-              <div className="bg-black p-6 rounded-lg shadow-lg text-center">
+              <div className="bg-gray-700 p-6 rounded-lg shadow-lg text-center">
                 <img
                   src={product.imageUrl}
                   alt={product.name}
