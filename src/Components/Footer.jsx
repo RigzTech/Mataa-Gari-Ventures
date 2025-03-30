@@ -101,36 +101,10 @@ const Footer = () => {
                     color:#99edc3;
                     text-decoration: underline;
                 }
-
-                @media (max-width: 992px) {
-                    .logo { font-size: 35px; }
-                    .text { width: 230px; }
-                }
-
-                @media (max-width: 600px) {
-                    .logo { font-size: 28px; }
-                    .head { font-size: 17px; }
-                    .text, .bottom { font-size: 14px; }
-                }
-
-                @media (max-width: 575px) {
-                    .footerColumn { padding-left: 30%; }
-                }
-
-                @media (max-width: 455px) {
-                    .footerColumn { padding-left: 20%; }
-                }
-
-                @media (max-width: 350px) {
-                    .footerColumn { padding-left: 10%; }
-                    .text { width: 100%; }
-                }
             `}</style>
 
-            {/* Main Footer */}
             <div className="footerContainer">
                 <div className="footerRow">
-                    {/* Company Info */}
                     <div className="footerColumn">
                         <p className="logo">MATAA GARI VENTURES</p>
                         <p className="text">Kenya, East-Africa, Africa</p>
@@ -153,22 +127,15 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Services */}
                     <div className="footerColumn">
-<<<<<<< HEAD
-                        <p className="head">Spare Parts Sales</p>
-                        <p className="text">Spare Parts Fixing</p>
-                        <p className="text">Trade in</p>
-                        <p className="text">Consultations</p>
-=======
                         <p className="head">Our Services</p>
                         <p className="text">Spare Parts Sales</p>
+                        <p className="text">Spare Parts Fixing</p>
+                        <p className="text">Trade in</p>
                         <p className="text">Installation Services</p>
                         <p className="text">Technical Consultations</p>
->>>>>>> 12e8bc4 (Mataa banaeii)
                     </div>
 
-                    {/* Head Office */}
                     <div className="footerColumn">
                         <p className="head">Head Office</p>
                         <p className="text">
@@ -188,7 +155,6 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Opening Hours */}
                     <div className="footerColumn">
                         <p className="head">Opening Hours</p>
                         <p className="text">Mon - Sat : 8:00 - 17:00</p>
@@ -197,21 +163,18 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Embedded Map */}
             <div className="mapContainer">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d7977.642348753518!2d36.81513759092368!3d-1.2810010448272573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d-1.2841!2d36.8155!4m5!1s0x182f1100386fdc9d%3A0xdb804be92cb64fa4!2sPRCG%2B283%2C%20Kirinyaga%20Rd%2C%20Nairobi!3m2!1d-1.2799844!2d36.825804999999995!5e0!3m2!1sen!2ske!4v1741603646832!5m2!1sen!2ske"
+                    src="https://www.google.com/maps/embed?..."
                     width="100%"
                     height="300"
                     style={{ border: 0 }}
                     title="Location Map"
                     allowFullScreen
                     loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
             </div>
 
-            {/* Footer Bottom */}
             <div className="footerBottom">
                 <p><strong>MATAA GARI VENTURES LIMITED</strong></p>
                 <p>Copyright © {new Date().getFullYear()}. All rights reserved.</p>
