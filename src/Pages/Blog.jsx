@@ -55,9 +55,9 @@ const Blog = () => {
   return (
     <>
       {/* Header Section with Container */}
-      <section className="py-16 px-6 bg-black text-white flex justify-center">
-        <div className="bg-gray-800 shadow-lg rounded-lg p-10 max-w-4xl text-center border border-[#99edc3]">
-          <h1 className="text-5xl font-bold text-[#99edc3] uppercase">Auto Parts Blog</h1>
+      <section className="py-16 px-6 bg-white text-white flex justify-center">
+        <div className="bg-green-700 shadow-lg rounded-lg p-10 max-w-4xl text-center border border-[#99edc3]">
+          <h1 className="text-5xl font-bold text-black uppercase">Auto Parts Blog</h1>
           <p className="text-lg mt-4 text-gray-300 max-w-2xl mx-auto">
             Stay informed with expert insights, tips, and guides on buying and maintaining car spare parts.
           </p>
@@ -65,8 +65,8 @@ const Blog = () => {
       </section>
 
       {/* Blog Articles Section */}
-      <section className="bg-gray-900 text-white py-16 px-6">
-        <h2 className="text-4xl font-bold text-[#99edc3] text-center mb-10">Latest Articles</h2>
+      <section className="bg-emerald-50 text-white py-16 px-6">
+        <h2 className="text-4xl font-bold text-black text-center mb-10">Latest Articles</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {blogPosts.map((post) => (
             <div key={post.id} className="bg-gray-800 p-5 rounded-lg shadow-lg border border-gray-700">
