@@ -173,6 +173,7 @@ const OrderPayment = () => {
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                     className="bg-red-500 px-3 py-1 rounded hover:bg-red-600"
+                    disabled={item.quantity <= 1}  // Prevent quantity going below 1
                   >
                     -
                   </button>
