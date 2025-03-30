@@ -144,16 +144,16 @@ const Footer = () => {
                         <p className="logo">MATAA GARI VENTURES</p>
                         <p className="text">Kenya, East-Africa, Africa</p>
                         <div className="socialIcons">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.facebook.com/share/15c8WfFMxd/" target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faFacebook} className="icon" />
                             </a>
                             <a href="#" target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faTwitter} className="icon" />
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/mataa_gariventures?igsh=MXFzOGJtY2hjM29mdQ==" target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faInstagram} className="icon" />
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.tiktok.com/@mataa.gari.ventures?_t=ZM-8v7MgXJo48t&_r=1" target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faTiktok} className="icon" />
                             </a>
                             <a href="https://wa.me/254796383719" target="_blank" rel="noopener noreferrer">
