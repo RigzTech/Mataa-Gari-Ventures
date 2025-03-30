@@ -36,6 +36,15 @@ export const ThemeProvider = ({ children }) => {
     }
   };
 
+  // Apply dark class to document based on theme
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

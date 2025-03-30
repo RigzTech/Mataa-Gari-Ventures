@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext.jsx";
 import { SunIcon, MoonIcon, SystemIcon } from "./icons.jsx";
-import logo from "../assets/logo.webp";
+import logo from "../assets/mataa_logo.jpg"; // Using your local logo; change to "logo.webp" if preferred
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
