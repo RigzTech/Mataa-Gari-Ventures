@@ -3,21 +3,9 @@ import { Link } from "react-router-dom"; // Import Link from React Router
 
 const ContactSection = () => {
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <section className="flex justify-center items-center py-8 px-10 mt-0">
-      <div className="bg-gray-900 text-black rounded-lg shadow-lg p-8 max-w-4xl w-full text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-800">
-        <h2 className="text-4xl font-bold text-[#99edc3] mb-8">Contact Us</h2>
-=======
 <section className="flex justify-center items-center py-8 px-10 mt-0 bg-emerald-50">
         <div className="bg-black text-white rounded-lg shadow-lg p-8 max-w-4xl w-full text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:bg-green-600">
         <h2 className="text-4xl font-bold text-yellow-400 mb-8">Contact Us</h2>
->>>>>>> c043e97fa565c89f36f035f1de98bb5477409217
-=======
-<section className="flex justify-center items-center py-8 px-10 mt-0 bg-emerald-50">
-        <div className="bg-black text-white rounded-lg shadow-lg p-8 max-w-4xl w-full text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:bg-green-600">
-        <h2 className="text-4xl font-bold text-yellow-400 mb-8">Contact Us</h2>
->>>>>>> dd89cee5f86f72f5ab9c2d6e25bba7d718b08bf7
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {/* Card 1: Location */}
