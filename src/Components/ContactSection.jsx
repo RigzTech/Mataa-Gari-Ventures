@@ -27,7 +27,7 @@ const ContactSection = () => {
         <div className="mt-6">
           {/* Button wrapped with Link */}
           <Link to="/contact">
-            <button className="bg-blue-400 text-black px-6 py-3 rounded-lg shadow-md transition-transform duration-200 hover:scale-110 hover:bg-[#99edc3]">
+            <button className="bg-blue-600 text-black px-6 py-3 rounded-lg shadow-md transition-transform duration-200 hover:scale-110 hover:bg-[#99edc3]">
               Contact Now
             </button>
           </Link>
