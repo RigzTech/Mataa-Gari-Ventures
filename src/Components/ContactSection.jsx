@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"; // Import Link from React Router
 
 const ContactSection = () => {
   return (
-    <section className="flex justify-center items-center py-8 px-10 mt-0">
-      <div className="bg-green-700 text-white rounded-lg shadow-lg p-8 max-w-4xl w-full text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:bg-green-600">
+<section className="flex justify-center items-center py-8 px-10 mt-0 bg-emerald-50">
+        <div className="bg-black text-white rounded-lg shadow-lg p-8 max-w-4xl w-full text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:bg-green-600">
         <h2 className="text-4xl font-bold text-yellow-400 mb-8">Contact Us</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

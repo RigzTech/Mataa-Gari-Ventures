@@ -8,7 +8,7 @@ const Footer = () => {
         <>
             <style>{`
                 .footerContainer {
-                    background-color: #000000;
+                    background-color: #022c22; /* Emerald-900 */
                     padding: 40px 20px;
                 }
 
@@ -31,13 +31,13 @@ const Footer = () => {
                     font-size: 40px;
                     font-family: 'Montserrat';
                     font-weight: bold;
-                    color: #99edc3;
+                    color: white; /* Emerald-300 */
                     text-align: left;
                     margin-bottom: 20px;
                 }
 
                 .text {
-                    color: #ffffff;
+                    color: white /* Emerald-100 */
                     text-align: left;
                     font-size: 16px;
                     margin-bottom: 10px;
@@ -48,7 +48,7 @@ const Footer = () => {
                 }
 
                 .head {
-                    color: #99edc3;
+                    color: #34d399; /* Emerald-400 */
                     font-size: 22px;
                     text-align: left;
                     margin-top: 15px;
@@ -58,13 +58,14 @@ const Footer = () => {
 
                 .mapContainer {
                     margin-top: 40px;
+                    border-top: 2px solid #065f46; /* Emerald-800 */
                 }
 
                 .footerBottom {
-                    background-color: #111;
+                    background-color: #064e3b; /* Emerald-800 */
                     padding: 20px;
                     text-align: center;
-                    color: #99edc3;
+                    color: white; /* Emerald-300 */
                     position: relative;
                 }
 
@@ -72,36 +73,44 @@ const Footer = () => {
                     position: fixed;
                     bottom: 30px;
                     right: 30px;
-                    background-color: #014938;
+                    background-color: #065f46; /* Emerald-700 */
                     padding: 15px;
                     border-radius: 50%;
                     color: white;
                     font-size: 24px;
                     z-index: 1000;
+                    transition: all 0.3s ease;
+                }
+
+                .whatsapp:hover {
+                    background-color: #047857; /* Emerald-600 */
+                    transform: scale(1.1);
                 }
 
                 .icon {
                     font-size: 25px;
                     margin: 0 10px;
-                    color: #99edc3;
-                    transition: color 0.3s ease;
+                    color: #99edc3; /* Emerald-300 */
+                    transition: all 0.3s ease;
                 }
 
                 .icon:hover {
-                    color: #ffffff;
+                    color: #34d399; /* Emerald-400 */
+                    transform: scale(1.2);
                 }
 
                 .email, .phone {
-                    color: #ffffff;
+                    color: #d1fae5; /* Emerald-100 */
                     text-decoration: none;
-                    transition: color 0.3s ease;
+                    transition: all 0.3s ease;
                 }
 
                 .email:hover, .phone:hover {
-                    color:#99edc3;
+                    color: #34d399; /* Emerald-400 */
                     text-decoration: underline;
                 }
 
+                /* Responsive adjustments */
                 @media (max-width: 992px) {
                     .logo { font-size: 35px; }
                     .text { width: 230px; }
@@ -155,22 +164,16 @@ const Footer = () => {
 
                     {/* Services */}
                     <div className="footerColumn">
-<<<<<<< HEAD
-                        <p className="head">Spare Parts Sales</p>
-                        <p className="text">Spare Parts Fixing</p>
-                        <p className="text">Trade in</p>
-                        <p className="text">Consultations</p>
-=======
                         <p className="head">Our Services</p>
                         <p className="text">Spare Parts Sales</p>
                         <p className="text">Installation Services</p>
+                        <p className="text">Trade-in Program</p>
                         <p className="text">Technical Consultations</p>
->>>>>>> 12e8bc4 (Mataa banaeii)
                     </div>
 
-                    {/* Head Office */}
+                    {/* Contact Info */}
                     <div className="footerColumn">
-                        <p className="head">Head Office</p>
+                        <p className="head">Contact Details</p>
                         <p className="text">
                             <a href="https://maps.app.goo.gl/ShaboJDkChK8aoTS7" target="_blank" rel="noopener noreferrer">
                                 Nairobi, Kirinyaga road, MSP plaza Ground Flr, store G0
@@ -190,9 +193,10 @@ const Footer = () => {
 
                     {/* Opening Hours */}
                     <div className="footerColumn">
-                        <p className="head">Opening Hours</p>
-                        <p className="text">Mon - Sat : 8:00 - 17:00</p>
-                        <p className="text">Sun : Closed</p>
+                        <p className="head">Business Hours</p>
+                        <p className="text">Mon - Sat : 8:00 AM - 5:00 PM</p>
+                        <p className="text">Sunday : Closed</p>
+                        <p className="text">Public Holidays : By Appointment</p>
                     </div>
                 </div>
             </div>
@@ -214,7 +218,7 @@ const Footer = () => {
             {/* Footer Bottom */}
             <div className="footerBottom">
                 <p><strong>MATAA GARI VENTURES LIMITED</strong></p>
-                <p>Copyright © {new Date().getFullYear()}. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} All Rights Reserved</p>
                 <a href="https://wa.me/254796383719" target="_blank" rel="noopener noreferrer" className="whatsapp">
                     <FontAwesomeIcon icon={faWhatsapp} />
                 </a>
