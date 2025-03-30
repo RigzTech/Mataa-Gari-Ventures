@@ -10,38 +10,50 @@ export const useTheme = () => {
 
 // ThemeProvider component
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme || "light"; // Default to "light" if no saved theme
+  });
 
-  // Set the theme from localStorage on initial load
+  // Sync theme with localStorage and system preference
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      setTheme("light"); // default to light theme
+      // Check system preference if no saved theme
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
     }
   }, []);
 
   // Toggle theme between light, dark, and system
   const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-    } else if (theme === "dark") {
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-    } else {
-      setTheme("system");
-      localStorage.setItem("theme", "system");
-    }
+    setTheme((prev) => {
+      let newTheme;
+      if (prev === "light") {
+        newTheme = "dark";
+      } else if (prev === "dark") {
+        newTheme = "system";
+      } else {
+        newTheme = "light";
+      }
+      localStorage.setItem("theme", newTheme);
+      return newTheme;
+    });
   };
 
-  // Apply dark class to document based on theme
+  // Apply theme classes to document
   useEffect(() => {
+    const root = document.documentElement;
+    root.classList.remove("light", "dark");
     if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.add("dark");
+    } else if (theme === "light") {
+      root.classList.add("light");
+    } else if (theme === "system") {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      root.classList.add(prefersDark ? "dark" : "light");
     }
   }, [theme]);
 
