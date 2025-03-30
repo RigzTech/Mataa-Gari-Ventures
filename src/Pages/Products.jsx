@@ -67,6 +67,7 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+<<<<<<< HEAD
   // Fetch Category Description
   useEffect(() => {
     if (filter !== "All") {
@@ -90,6 +91,8 @@ const Products = () => {
   }, [filter]);
 
   // Filter Products
+=======
+>>>>>>> 12e8bc4 (Mataa banaeii)
   const filteredProducts = products.filter((product) => {
     const matchesCategory = filter === "All" || product.description?.includes(filter);
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -105,6 +108,20 @@ const Products = () => {
     return matchesCategory && matchesSearch && matchesMake && matchesModel && matchesYear && matchesPrice && matchesStock;
   });
 
+<<<<<<< HEAD
+=======
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setNotification(`${product.name} added to cart!`);
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+  const handleBuyNow = (product) => {
+    addToCart(product);
+    navigate("/order-payment");
+  };
+
+>>>>>>> 12e8bc4 (Mataa banaeii)
   return (
     <section className="bg-black text-white py-16 px-4">
       {/* Shopping Cart Icon */}
@@ -130,6 +147,7 @@ const Products = () => {
       {/* Page Title */}
       <h1 className="text-5xl font-bold text-[#99edc3] text-center mb-6">Our Products</h1>
 
+<<<<<<< HEAD
       {/* Filters Section */}
       <div className="flex flex-wrap justify-start gap-4 mb-6">
         <input 
@@ -216,6 +234,9 @@ const Products = () => {
       )}
 
       {/* Products Display Section */}
+=======
+      {/* Products Grid */}
+>>>>>>> 12e8bc4 (Mataa banaeii)
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
@@ -235,10 +256,16 @@ const Products = () => {
               >
                 Add to Cart
               </button>
+<<<<<<< HEAD
               <button 
                 className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
                 onClick={() => navigate("/order-payment")}
               >
+=======
+
+              {/* Buy Now Button */}
+              <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onClick={() => handleBuyNow(product)}>
+>>>>>>> 12e8bc4 (Mataa banaeii)
                 Buy Now
               </button>
             </div>

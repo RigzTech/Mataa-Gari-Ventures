@@ -155,10 +155,17 @@ const Footer = () => {
 
                     {/* Services */}
                     <div className="footerColumn">
+<<<<<<< HEAD
                         <p className="head">Spare Parts Sales</p>
                         <p className="text">Spare Parts Fixing</p>
                         <p className="text">Trade in</p>
                         <p className="text">Consultations</p>
+=======
+                        <p className="head">Our Services</p>
+                        <p className="text">Spare Parts Sales</p>
+                        <p className="text">Installation Services</p>
+                        <p className="text">Technical Consultations</p>
+>>>>>>> 12e8bc4 (Mataa banaeii)
                     </div>
 
                     {/* Head Office */}
