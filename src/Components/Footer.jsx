@@ -181,7 +181,7 @@ const Footer = () => {
                         </p>
                         <p className="text">
                             <a href="mailto:info@mataagariventures.com" className="email">
-                                <FontAwesomeIcon icon={faEnvelope} /> info@mataagariventures.com
+                                <FontAwesomeIcon icon={faEnvelope} /> info@mataagariventures.co.ke
                             </a>
                         </p>
                         <p className="text">
