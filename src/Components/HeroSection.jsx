@@ -14,11 +14,11 @@ const HeroSection = () => {
 
       {/* Text Content Container */}
       <div className="relative z-10 max-w-xl text-center md:text-left animate-fadeIn">
-        <div className="bg-emerald-50 p-8 rounded-xl shadow-2xl"> {/* Added container */}
-          <h1 className="text-5xl md:text-6xl font-extrabold text-emerald-800 uppercase leading-tight">
+        <div className="bg-gray-700 p-8 rounded-xl shadow-2xl"> {/* Added container */}
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white uppercase leading-tight">
             Your Trusted Auto Spares Dealer
           </h1>
-          <p className="mt-4 text-lg text-emerald-700">
+          <p className="mt-4 text-lg text-white">
             Specializing in Headlamps, Taillamps, Side Lamps & LEDs for all car models.
           </p>
           <div className="mt-6 flex flex-col md:flex-row gap-4">

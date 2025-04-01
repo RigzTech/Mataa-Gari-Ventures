@@ -88,8 +88,8 @@ const ProductShowcase = () => {
   }
 
   return (
-    <section className="bg-emerald-50 text-white py-16 px-4 md:px-10">
-      <h2 className="text-4xl font-bold text-black mb-8 text-center">
+    <section className="bg-gray-900 text-white py-16 px-4 md:px-10">
+      <h2 className="text-4xl font-bold text-white mb-8 text-center">
         Products
       </h2>
 
@@ -179,7 +179,7 @@ const ProductShowcase = () => {
         >
           {filteredProducts.map((product) => (
             <SwiperSlide key={product._id}>
-              <div className="bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+              <div className="bg-black p-6 rounded-lg shadow-lg text-center">
                 <img
                   src={product.imageUrl}
                   alt={product.name}

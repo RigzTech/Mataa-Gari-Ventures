@@ -21,10 +21,10 @@ const Contact = () => {
       </section>
 
       {/* Contact Details Section */}
-      <section className="bg-emerald-50 text-white py-16 px-10">
+      <section className="bg-gray-950 text-white py-16 px-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
-          <div className="bg-green-700 bg-opacity-80 p-6 rounded-lg shadow-lg">
+          <div className="bg-green-950 bg-opacity-80 p-6 rounded-lg shadow-lg">
             <h2 className="text-3xl font-bold text-black mb-4">Get In Touch</h2>
             <p className="text-lg text-gray-300 mb-6">
               We’d love to hear from you! Whether you have questions about our products, pricing, or anything else, our team is ready to help.
