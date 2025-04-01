@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-emerald-50" style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
+    <nav className="bg-gray-900" style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -16,11 +16,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-10 text-lg font-medium">
-          <Link to="/" className="text-black hover:text-gray-400 transition">Home</Link>
-          <Link to="/about" className="text-black hover:text-gray-400 transition">About</Link>
-          <Link to="/products" className="text-black hover:text-gray-400 transition">Products</Link>
-          <Link to="/blog" className="text-black hover:text-gray-400 transition">Blogs</Link>
-          <Link to="/contact" className="text-black hover:text-gray-400 transition">Contact</Link>
+          <Link to="/" className="text-white hover:text-[#99edc3] transition">Home</Link>
+          <Link to="/about" className="text-white hover:text-[#99edc3] transition">About</Link>
+          <Link to="/products" className="text-white hover:text-[#99edc3] transition">Products</Link>
+          <Link to="/blog" className="text-white hover:text-[#99edc3] transition">Blogs</Link>
+          <Link to="/contact" className="text-white hover:text-[#99edc3] transition">Contact</Link>
         </div>
 
         {/* Mobile Menu Button */}
