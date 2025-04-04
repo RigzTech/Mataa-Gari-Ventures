@@ -88,7 +88,7 @@ const ProductShowcase = () => {
   }
 
   return (
-    <section className="bg-emerald-50 text-white py-16 px-4 md:px-10">
+    <section className="bg-emerald-5000 text-white py-16 px-4 md:px-10">
       <h2 className="text-4xl font-bold text-black mb-8 text-center">
         Products
       </h2>
@@ -98,7 +98,7 @@ const ProductShowcase = () => {
         <input
           type="text"
           placeholder="Search by product name..."
-          className="px-4 py-2 text-white bg-gray-800 rounded"
+          className="px-4 py-2 text-black bg-white rounded"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -179,7 +179,7 @@ const ProductShowcase = () => {
         >
           {filteredProducts.map((product) => (
             <SwiperSlide key={product._id}>
-              <div className="bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+              <div className="bg-white p-6 rounded-lg shadow-lg text-center">
                 <img
                   src={product.imageUrl}
                   alt={product.name}
@@ -187,10 +187,10 @@ const ProductShowcase = () => {
                   onError={(e) => (e.target.src = "/placeholder.jpg")}
                 />
                 <h3 className="text-xl font-semibold">{product.name}</h3>
-                <p className="text-gray-400">Make: {product.make}</p>
-                <p className="text-gray-400">Model: {product.model}</p>
-                <p className="text-gray-400">Description: {product.description}</p>
-                <p className="text-[#99edc3] font-bold">
+                <p className="text-gray-900">Make: {product.make}</p>
+                <p className="text-gray-900">Model: {product.model}</p>
+                <p className="text-gray-900">Description: {product.description}</p>
+                <p className="text-green-700 font-bold">
                   Ksh {product.price.toLocaleString()}
                 </p>
                 

@@ -8,7 +8,9 @@ const Footer = () => {
         <>
             <style>{`
                 .footerContainer {
-                    background-color: #022c22; /* Emerald-900 */
+                    background-color: #111827
+
+; /* Emerald-900 */
                     padding: 40px 20px;
                 }
 
@@ -62,7 +64,9 @@ const Footer = () => {
                 }
 
                 .footerBottom {
-                    background-color: #064e3b; /* Emerald-800 */
+                    background-color: #111827
+
+; /* Emerald-800 */
                     padding: 20px;
                     text-align: center;
                     color: white; /* Emerald-300 */

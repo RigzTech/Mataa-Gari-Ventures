@@ -9,11 +9,11 @@ const About = () => {
     <>
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-fixed bg-center text-white py-32 px-10 text-center"
+        className="relative bg-cover bg-fixed bg-center text-black py-32 px-10 text-center"
         style={{ backgroundImage: `url(${aboutImage})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-        <div className="relative z-10 max-w-4xl mx-auto p-10 bg-green-700 bg-opacity-80 rounded-lg shadow-lg">
+        <div className="relative z-10 max-w-4xl mx-auto p-10 bg-green-100 bg-opacity-80 rounded-lg shadow-lg">
           <h1 className="text-6xl font-extrabold text-black mb-6 uppercase drop-shadow-lg">
             About Us
           </h1>
@@ -26,11 +26,11 @@ const About = () => {
       </section>
 
       {/* Who We Are Section - Two Cards Layout */}
-      <section className="bg-emerald-50 text-white py-16 px-10 flex justify-center">
+      <section className="bg-emerald-50 text-black py-16 px-10 flex justify-center">
         <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Card 1: Company Overview */}
-          <div className="bg-green-700 p-8 rounded-lg shadow-lg border border-[#444444] text-center">
-            <h2 className="text-3xl font-bold text-[#99edc3] mb-6">Who We Are</h2>
+          <div className="bg-green-50 p-8 rounded-lg shadow-lg border border-[#444444] text-center">
+            <h2 className="text-3xl font-bold text-green-700 mb-6">Who We Are</h2>
             <p className="text-lg leading-relaxed">
               Mataa Gari Ventures specializes in sourcing high-quality, durable, and affordable car parts. 
               From headlamps to taillamps, side mirrors to bumpers, we guarantee genuine products for your vehicle. 
@@ -39,8 +39,8 @@ const About = () => {
           </div>
 
           {/* Card 2: Our Values */}
-          <div className="bg-green-700 p-8 rounded-lg shadow-lg border border-[#444444] text-center">
-            <h2 className="text-3xl font-bold text-[#99edc3] mb-6">Our Values</h2>
+          <div className="bg-emerald-50 p-8 rounded-lg shadow-lg border border-[#444444] text-center">
+            <h2 className="text-3xl font-bold text-green-700 mb-6">Our Values</h2>
             <p className="text-lg leading-relaxed">
               At Mataa Gari Ventures, we uphold integrity, excellence, and customer satisfaction above all. 
               Our team is dedicated to providing transparent services, honest recommendations, and high-quality auto spares 
@@ -65,7 +65,7 @@ const About = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-[#222222] p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform transition-all hover:scale-105 hover:shadow-xl border border-[#444444]"
+                className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform transition-all hover:scale-105 hover:shadow-xl border border-[#444444]"
               >
                 <div className="text-5xl text-[#99edc3] mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-white">{service.title}</h3>
@@ -76,8 +76,8 @@ const About = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-emerald-50 text-white py-16 px-10 flex justify-center">
-        <div className="max-w-5xl bg-green-700 p-10 rounded-lg shadow-lg border border-[#444444] w-full">
+      <section className="bg-emerald-50 text-black py-16 px-15 flex justify-center">
+        <div className="max-w-5xl bg-green-100 p-5 rounded-lg shadow-lg border border-[#444444] w-full">
           <Testimonials />
         </div>
       </section>
@@ -88,7 +88,7 @@ const About = () => {
         style={{ backgroundImage: `url(${ctaBg})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        <div className="relative z-10 max-w-4xl mx-auto p-10 bg-green-700 bg-opacity-80 rounded-lg shadow-lg">
+        <div className="relative z-10 max-w-4xl mx-auto p-10 bg-green-00 bg-opacity-80 rounded-lg shadow-lg">
           <h2 className="text-4xl font-bold text-[#99edc3]">
             Looking for Reliable Auto Spares?
           </h2>
