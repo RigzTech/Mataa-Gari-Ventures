@@ -37,10 +37,10 @@ const Navbar = () => {
         <div style={{ textAlign: "center", padding: "12px", borderTop: "1px solid #333" }}>
           <div className="mt-4 pt-4">
             <Link to="/" className="block py-2 text-white hover:text-emerald-400">Home</Link>
-            <Link to="/about" className="block py-2 text-white hover:text-gray-400">About</Link>
-            <Link to="/products" className="block py-2 text-white hover:text-gray-400">Products</Link>
-            <Link to="/blog" className="block py-2 text-white hover:text-gray-400">Blogs</Link>
-            <Link to="/contact" className="block py-2 text-white hover:text-gray-400">Contact</Link>
+            <Link to="/about" className="block py-2 text-white hover:text-emerald-400">About</Link>
+            <Link to="/products" className="block py-2 text-white hover:text-emerald-400">Products</Link>
+            <Link to="/blog" className="block py-2 text-white hover:text-emerald-400">Blogs</Link>
+            <Link to="/contact" className="block py-2 text-white hover:text-emerald-400">Contact</Link>
           </div>
         </div>
       )}
