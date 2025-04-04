@@ -7,15 +7,28 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     setCartItems((prevCart) => {
-      const existingItem = prevCart.find((item) => item.name === product.name && item.make === product.make && item.model === product.model);
+      // Create a unique identifier for each product based on its properties
+      const productId = `${product.name}-${product.make}-${product.model}`;
+      
+      const existingItem = prevCart.find(
+        (item) => item.id === productId
+      );
+      
       if (existingItem) {
         return prevCart.map((item) =>
-          item.name === product.name && item.make === product.make && item.model === product.model
+          item.id === productId
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
-        return [...prevCart, { ...product, quantity: 1 }];
+        return [
+          ...prevCart,
+          { 
+            ...product, 
+            quantity: 1, 
+            id: productId // Use our generated unique ID
+          },
+        ];
       }
     });
   };
@@ -26,12 +39,23 @@ export const CartProvider = ({ children }) => {
 
   const updateQuantity = (id, quantity) => {
     setCartItems((prevCart) =>
-      prevCart.map((item) => (item.id === id ? { ...item, quantity } : item))
+      prevCart.map((item) => 
+        item.id === id 
+          ? { ...item, quantity: Math.max(1, quantity) } 
+          : item
+      )
     );
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity }}>
+    <CartContext.Provider 
+      value={{ 
+        cartItems, 
+        addToCart, 
+        removeFromCart, 
+        updateQuantity 
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
