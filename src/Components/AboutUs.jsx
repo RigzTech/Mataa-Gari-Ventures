@@ -3,7 +3,7 @@ import React from "react";
 const AboutUs = () => {
   return (
     <section className="flex justify-center items-center py-8 px-10 mb-0 bg-white">
-      <div className="bg-green-700 text-emerald-700 py-16 px-10 text-center rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl max-w-7xl w-full border-2 border-emerald-100">
+      <div className="bg-green-00 text-emerald-700 py-16 px-10 text-center rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl max-w-7xl w-full border-2 border-emerald-100">
         <h2 className="text-4xl font-bold text-black mb-8 font-serif">About Us</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

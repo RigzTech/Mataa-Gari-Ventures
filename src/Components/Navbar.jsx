@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-700" style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
+    <nav className="bg-gray-900" style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <Link to="/" className="flex items-center">

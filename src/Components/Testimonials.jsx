@@ -70,17 +70,17 @@ const Testimonials = () => {
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
               <img
                 src={testimonial.image}
                 alt={testimonial.name}
                 className="w-14 h-14 rounded-full mx-auto mb-3 border-2 border-[#99EDC3]"
               />
-              <h3 className="text-xl font-semibold text-[#99EDC3]">
+              <h3 className="text-xl font-semibold text-black">
                 {testimonial.name}
               </h3>
               <p className="text-sm text-gray-400">{testimonial.role}</p>
-              <p className="mt-4 text-lg text-white">{testimonial.feedback}</p>
+              <p className="mt-4 text-lg text-black">{testimonial.feedback}</p>
             </div>
           </SwiperSlide>
         ))}

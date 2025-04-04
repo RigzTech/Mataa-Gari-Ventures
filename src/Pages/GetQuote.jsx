@@ -34,7 +34,7 @@ const GetQuote = () => {
   };
 
   return (
-    <section className="bg-gray-900 text-white py-16 px-6 min-h-screen flex justify-center items-center">
+    <section className="bg-gray-300 text-black py-16 px-6 min-h-screen flex justify-center items-center">
       <div className="w-full max-w-lg bg-black p-8 rounded-lg shadow-lg border border-gray-700">
         {/* Welcome Message */}
         <h1 className="text-3xl font-bold text-[#99edc3] text-center mb-2">Get a Quote</h1>
@@ -44,38 +44,38 @@ const GetQuote = () => {
 
         <form className="space-y-5">
           {/* Name Field */}
-          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaUser className="text-[#bbbbbb] mr-3" />
+          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaUser className="text-black mr-3" />
             <input type="text" name="name" value={formData.name} onChange={handleChange} required 
               className="w-full bg-transparent outline-none placeholder-gray-300" placeholder="Your Name"/>
           </div>
 
           {/* Phone Number Field */}
-          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaPhone className="text-[#bbbbbb] mr-3" />
+          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaPhone className="text-black mr-3" />
             <input type="text" name="phone" value={formData.phone} onChange={handleChange} required 
               className="w-full bg-transparent outline-none placeholder-gray-300" placeholder="Phone Number"/>
           </div>
 
           {/* Car Model Field */}
-          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaCar className="text-[#bbbbbb] mr-3" />
+          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaCar className="text-black mr-3" />
             <input type="text" name="carModel" value={formData.carModel} onChange={handleChange} required 
               className="w-full bg-transparent outline-none placeholder-gray-300" placeholder="Car Model"/>
           </div>
 
           {/* Part Needed Field */}
-          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaTools className="text-[#bbbbbb] mr-3" />
+          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaTools className="text-black mr-3" />
             <input type="text" name="partNeeded" value={formData.partNeeded} onChange={handleChange} required 
               className="w-full bg-transparent outline-none placeholder-gray-300" placeholder="Part Needed"/>
           </div>
 
           {/* Image Upload Field */}
-          <div className="flex items-center bg-gray-700 text-white border border-[#99edc3] rounded-lg px-3 py-3">
-            <FaPaperclip className="text-[#bbbbbb] mr-3" />
+          <div className="flex items-center bg-white text-black border border-[#99edc3] rounded-lg px-3 py-3">
+            <FaPaperclip className="text-black mr-3" />
             <input type="file" accept="image/*" onChange={handleImageUpload} 
-              className="w-full bg-transparent outline-none text-gray-300"/>
+              className="w-full bg-transparent outline-none text-gray-400"/>
           </div>
 
           {/* Submit Buttons */}

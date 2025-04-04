@@ -9,13 +9,31 @@ const Products = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [carMake, setCarMake] = useState("");
   const [carModel, setCarModel] = useState("");
+  const [carYear, setCarYear] = useState(""); // Added for year range filter
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-  const [onlyInStock, setOnlyInStock] = useState(false); // Filter state for in-stock items
+  const [onlyInStock, setOnlyInStock] = useState(false);
   const [notification, setNotification] = useState(null);
   const [categoryDescription, setCategoryDescription] = useState("");
   const { addToCart, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
+
+  // List of Car Makes (from ProductShowcase example)
+  const allCarMakes = [
+    "Toyota", "Honda", "Ford", "Chevrolet", "Nissan", "BMW", "Mercedes-Benz",
+    "Volkswagen", "Audi", "Hyundai", "Kia", "Subaru", "Mazda", "Lexus",
+    "Jeep", "Dodge", "Chrysler", "Ram", "Cadillac", "Buick", "GMC",
+    "Tesla", "Volvo", "Porsche", "Jaguar", "Land Rover", "Infiniti",
+    "Acura", "Mini", "Mitsubishi", "Alfa Romeo", "Fiat", "Suzuki",
+    "Peugeot", "Renault", "Skoda", "Seat"
+  ];
+
+  // Year Range Generation (from ProductShowcase example)
+  const currentYear = new Date().getFullYear();
+  const yearRanges = [];
+  for (let year = currentYear; year >= 1980; year -= 3) {
+    yearRanges.push(`${year}-${year - 2 > 1980 ? year - 2 : 1980}`);
+  }
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -25,14 +43,18 @@ const Products = () => {
           throw new Error("Failed to fetch products");
         }
         const data = await response.json();
-        const updatedProducts = data.products.map(({ name, make, model, description, price, imageUrl }) => ({
-          name,
-          make,
-          model,
-          description,
-          price,
-          imageUrl,
-        }));
+        const updatedProducts = data.products.map(
+          ({ name, make, model, description, price, imageUrl, stock, year }) => ({
+            name,
+            make,
+            model,
+            description,
+            price,
+            imageUrl,
+            stock: stock !== undefined ? stock : 0, // Default to 0 if stock isn't provided
+            year: year || 0, // Default to 0 if year isn't provided
+          })
+        );
         setProducts(updatedProducts);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -42,17 +64,24 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+  // Check if stock data is available in any product
+  const hasStockData = products.some((product) => product.stock > 0);
+
+  // Filter products based on user input
   const filteredProducts = products.filter((product) => {
     const matchesCategory = filter === "All" || product.description?.includes(filter);
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesMake = carMake === "" || product.make.toLowerCase().includes(carMake.toLowerCase());
+    const matchesMake = carMake === "" || product.make.toLowerCase() === carMake.toLowerCase();
     const matchesModel = carModel === "" || product.model.toLowerCase().includes(carModel.toLowerCase());
+    const matchesYear =
+      carYear === "" ||
+      (product.year >= Number(carYear.split("-")[1]) && product.year <= Number(carYear.split("-")[0]));
     const matchesPrice =
       (minPrice === "" || product.price >= Number(minPrice)) &&
       (maxPrice === "" || product.price <= Number(maxPrice));
-    const matchesStock = !onlyInStock || product.stock > 0; // Apply in-stock filter
+    const matchesStock = !onlyInStock || product.stock > 0;
 
-    return matchesCategory && matchesSearch && matchesMake && matchesModel && matchesPrice && matchesStock;
+    return matchesCategory && matchesSearch && matchesMake && matchesModel && matchesYear && matchesPrice && matchesStock;
   });
 
   const handleAddToCart = (product) => {
@@ -67,7 +96,7 @@ const Products = () => {
   };
 
   return (
-    <section className="bg-black text-white py-16 px-4">
+    <section className="bg-black text-black py-16 px-4">
       {/* Cart Icon */}
       <div className="fixed top-4 right-4 cursor-pointer z-50" onClick={() => navigate("/order-payment")}>
         <FaShoppingCart className="text-3xl text-[#99edc3] hover:text-green-400 transition" />
@@ -87,25 +116,115 @@ const Products = () => {
 
       <h1 className="text-5xl font-bold text-[#99edc3] text-center mb-6">Our Products</h1>
 
+      {/* Filter Section */}
+      <div className="bg-[#e6f7f0] text-black p-4 rounded-lg mb-6 flex flex-wrap gap-4 items-center justify-center">
+        {/* Search by Product Name */}
+        <input
+          type="text"
+          placeholder="Search by product name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#99edc3] w-48"
+        />
+
+        {/* Filter by Car Make */}
+        <select
+          value={carMake}
+          onChange={(e) => setCarMake(e.target.value)}
+          className="px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#99edc3] w-48"
+        >
+          <option value="">Filter by car make...</option>
+          {allCarMakes.map((make) => (
+            <option key={make} value={make}>
+              {make}
+            </option>
+          ))}
+        </select>
+
+        {/* Filter by Car Model (Text Input) */}
+        <input
+          type="text"
+          placeholder="Filter by car model..."
+          value={carModel}
+          onChange={(e) => setCarModel(e.target.value)}
+          className="px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#99edc3] w-48"
+        />
+
+        {/* Filter by Year Range */}
+        <select
+          value={carYear}
+          onChange={(e) => setCarYear(e.target.value)}
+          className="px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#99edc3] w-48"
+        >
+          <option value="">Filter by year range...</option>
+          {yearRanges.map((range) => (
+            <option key={range} value={range}>
+              {range}
+            </option>
+          ))}
+        </select>
+
+        {/* Min Price */}
+        <input
+          type="number"
+          placeholder="Min Price"
+          value={minPrice}
+          onChange={(e) => setMinPrice(e.target.value)}
+          min="0"
+          className="px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#99edc3] w-24"
+        />
+
+        {/* Max Price */}
+        <input
+          type="number"
+          placeholder="Max Price"
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(e.target.value)}
+          min="0"
+          className="px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#99edc3] w-24"
+        />
+
+        {/* Only Show Products in Stock (conditionally rendered) */}
+        {hasStockData && (
+          <label className="flex items-center gap-2 text-black">
+            <input
+              type="checkbox"
+              checked={onlyInStock}
+              onChange={() => setOnlyInStock(!onlyInStock)}
+              className="h-5 w-5 cursor-pointer"
+            />
+            <span>Only show products in stock</span>
+          </label>
+        )}
+      </div>
+
       {/* Products Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
-            <div key={product.name} className="bg-gray-900 p-4 rounded-lg text-center">
+            <div key={product.name} className="bg-gray-100 p-4 rounded-lg text-center">
               <div className="w-full h-56 bg-gray-800 rounded-lg overflow-hidden flex items-center justify-center">
                 <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
               </div>
               <h2 className="text-xl font-semibold mt-3">{product.name}</h2>
-              <p>{product.make} {product.model}</p>
-              <p className="text-[#99edc3]">Ksh {product.price}</p>
+              <p>
+                {product.make} {product.model}
+              </p>
+              <p className="text-black">Ksh {product.price}</p>
 
               {/* Add to Cart Button */}
-              <button className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded" onClick={() => handleAddToCart(product)}>
+              <button
+                className="mt-4 bg-[#99edc3] text-black px-4 py-2 rounded"
+                onClick={() => handleAddToCart(product)}
+              >
                 Add to Cart
               </button>
 
               {/* Buy Now Button */}
-              <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onClick={() => handleBuyNow(product)}>
+              <button
+                className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+                onClick={() => handleBuyNow(product)}
+              >
                 Buy Now
               </button>
             </div>
